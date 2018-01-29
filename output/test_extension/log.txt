@@ -1,0 +1,648 @@
+"C:\Program Files\Java\jdk1.7.0_45\bin\java" -agentlib:jdwp=transport=dt_socket,address=127.0.0.1:58038,suspend=y,server=n -Dfile.encoding=UTF-8 -classpath "C:\Users\ova\Desktop\AIXM scripts\EA_Scripts_Eclipse_Project\bin;C:\Program Files\Java\jdk1.7.0_45\jre\lib\charsets.jar;C:\Program Files\Java\jdk1.7.0_45\jre\lib\deploy.jar;C:\Program Files\Java\jdk1.7.0_45\jre\lib\javaws.jar;C:\Program Files\Java\jdk1.7.0_45\jre\lib\jce.jar;C:\Program Files\Java\jdk1.7.0_45\jre\lib\jfr.jar;C:\Program Files\Java\jdk1.7.0_45\jre\lib\jfxrt.jar;C:\Program Files\Java\jdk1.7.0_45\jre\lib\jsse.jar;C:\Program Files\Java\jdk1.7.0_45\jre\lib\management-agent.jar;C:\Program Files\Java\jdk1.7.0_45\jre\lib\plugin.jar;C:\Program Files\Java\jdk1.7.0_45\jre\lib\resources.jar;C:\Program Files\Java\jdk1.7.0_45\jre\lib\rt.jar;C:\Program Files\Java\jdk1.7.0_45\jre\lib\ext\access-bridge.jar;C:\Program Files\Java\jdk1.7.0_45\jre\lib\ext\dnsns.jar;C:\Program Files\Java\jdk1.7.0_45\jre\lib\ext\jaccess.jar;C:\Program Files\Java\jdk1.7.0_45\jre\lib\ext\localedata.jar;C:\Program Files\Java\jdk1.7.0_45\jre\lib\ext\sunec.jar;C:\Program Files\Java\jdk1.7.0_45\jre\lib\ext\sunjce_provider.jar;C:\Program Files\Java\jdk1.7.0_45\jre\lib\ext\sunmscapi.jar;C:\Program Files\Java\jdk1.7.0_45\jre\lib\ext\sunpkcs11.jar;C:\Program Files\Java\jdk1.7.0_45\jre\lib\ext\zipfs.jar;C:\Users\ova\Desktop\AIXM scripts\EA_Scripts_Eclipse_Project\resources\jxl.jar;C:\Users\ova\Desktop\AIXM scripts\EA_Scripts_Eclipse_Project\resources\eaapi.jar;C:\Program Files\JetBrains\IntelliJ IDEA 12.1.7\lib\idea_rt.jar" eurocontrol.swim.model.ATM_Data_Models_Processing_Tool autorun "C:\Users\ova\Desktop\AIXM scripts\EA_Scripts_Eclipse_Project\EA_projects\test_extension.eap" "AIXM Features" "AIXM Data Types" "TestExt Features" "TestExt DataTypes" "TestExt Messages"
+Connected to the target VM, address: '127.0.0.1:58038', transport: 'socket'
+Opening EA project C:\Users\ova\Desktop\AIXM scripts\EA_Scripts_Eclipse_Project\EA_projects\test_extension.eap
+Loading complete... 
+Processing package Aerial Refuelling
+Processing package AirportHeliport
+Processing package Airport/Heliport
+Processing package Apron
+Processing package Helicopter Surfaces
+Processing package Lighting
+Processing package Markings
+Processing package Runway
+Processing package Seaplanes
+Processing package Surface Contamination
+Processing package Taxiway
+Processing package Airspace
+Processing package Geometry
+Processing package Holding
+Processing package Navaids Points
+Processing package Guidance Service
+Processing package Navaids
+Processing package Point Reference
+Processing package Points
+Processing package Visual Navigation
+Processing package Notes
+Processing package Obstacle
+Processing package Organisation
+Processing package Procedure
+Processing package Approach Procedure
+Processing package 1 - Approach
+Processing package 2 - Terminal Arrival Area
+Processing package 3 - Segment Leg
+Processing package 4 - Circling
+Processing package 5 - Minima
+Processing package Arrival Procedure
+Processing package Departure Procedure
+Processing package Minimum and Emergency Safe Altitude
+Processing package Procedure Overview
+Processing package Usage
+Processing package Routes
+Processing package En-route
+Processing package Flight restrictions
+Processing package RulesProcedures
+Processing package Service
+Processing package Shared
+Processing package Address
+Processing package Aircraft and Flight
+Processing package Airspace Layer
+Processing package Circle Sector
+Processing package Light Element
+Processing package Meteorology
+Processing package Radio Frequency Limitation
+Processing package Schedules
+Processing package Standard Levels
+Processing package Surface Assessment
+Processing package Surveillance
+WARNING: The stereotype of Class [AlphaType] contains letters in Upper case.
+WARNING: The stereotype of Class [AlphanumericType] contains letters in Upper case.
+WARNING: The stereotype of Class [Character1Type] contains letters in Upper case.
+WARNING: The stereotype of Class [Character2Type] contains letters in Upper case.
+WARNING: The stereotype of Class [Character3Type] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeAerialRefuellingBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeAerialRefuellingPointBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeAerialRefuellingPointType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeAerialRefuellingPrefixBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeAerialRefuellingPrefixType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeAerialRefuellingType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeAircraftBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeAircraftCategoryBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeAircraftCategoryType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeAircraftEngineBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeAircraftEngineNumberBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeAircraftEngineNumberType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeAircraftEngineType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeAircraftGroundServiceBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeAircraftGroundServiceType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeAircraftICAOBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeAircraftICAOType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeAircraftStandBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeAircraftStandType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeAircraftType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeAircraftWingspanClassBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeAircraftWingspanClassType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeAirportHeliportBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeAirportHeliportCollocationBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeAirportHeliportCollocationType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeAirportHeliportDesignatorBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeAirportHeliportDesignatorType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeAirportHeliportType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeAirportWarningBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeAirportWarningType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeAirspaceActivityBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeAirspaceActivityType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeAirspaceAggregationBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeAirspaceAggregationType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeAirspaceBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeAirspaceClassificationBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeAirspaceClassificationType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeAirspaceDependencyBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeAirspaceDependencyType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeAirspaceDesignatorBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeAirspaceDesignatorType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeAirspacePointPositionBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeAirspacePointPositionType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeAirspacePointRoleBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeAirspacePointRoleType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeAirspaceType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeAltitudeAdjustmentBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeAltitudeAdjustmentType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeAltitudeUseBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeAltitudeUseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeApproachBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeApproachEquipmentAdditionalBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeApproachEquipmentAdditionalType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeApproachGuidanceBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeApproachGuidanceType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeApproachLightingBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeApproachLightingICAOBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeApproachLightingICAOType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeApproachLightingType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeApproachPrefixBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeApproachPrefixType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeApproachType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeApprovalBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeApprovalType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeApronElementBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeApronElementType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeApronSectionBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeApronSectionType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeArcDirectionBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeArcDirectionType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeArrestingGearEnergyAbsorbBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeArrestingGearEnergyAbsorbType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeArrestingGearEngageDeviceBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeArrestingGearEngageDeviceType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeATCReportingBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeATCReportingType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeAuralMorseBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeAuralMorseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeAuthorityBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeAuthorityRoleBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeAuthorityRoleType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeAuthorityType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeAviationStandardsBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeAviationStandardsType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeBearingBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeBearingType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeBuoyBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeBuoyType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeCardinalDirectionBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeCardinalDirectionType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeCheckpointCategoryBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeCheckpointCategoryType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeColourBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeColourType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeCommunicationChannelBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeCommunicationChannelType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeCommunicationDirectionBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeCommunicationDirectionType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeCommunicationModeBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeCommunicationModeType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeComparisonBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeComparisonType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeContaminationBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeContaminationType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeCourseBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeCourseQualityILSBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeCourseQualityILSType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeCourseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeDayBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeDayType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeDeclaredDistanceBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeDeclaredDistanceType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeDesignatedPointBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeDesignatedPointDesignatorBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeDesignatedPointDesignatorType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeDesignatedPointType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeDesignStandardBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeDesignStandardType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeDirectionBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeDirectionReferenceBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeDirectionReferenceType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeDirectionTurnBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeDirectionTurnType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeDirectionType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeDistanceIndicationBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeDistanceIndicationType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeDMEBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeDMEChannelBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeDMEChannelType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeDMEType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeEmissionBandBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeEmissionBandType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeEquipmentAntiCollisionBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeEquipmentAntiCollisionType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeEquipmentUnavailableBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeEquipmentUnavailableType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeFacilityRankingBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeFacilityRankingType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeFinalGuidanceBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeFinalGuidanceType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeFireFightingBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeFireFightingType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeFlightBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeFlightDestinationBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeFlightDestinationType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeFlightOriginBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeFlightOriginType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeFlightPurposeBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeFlightPurposeType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeFlightRestrictionBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeFlightRestrictionDesignatorBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeFlightRestrictionDesignatorType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeFlightRestrictionType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeFlightRuleBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeFlightRuleType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeFlightStatusBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeFlightStatusType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeFlightType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeFlowConditionOperationBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeFlowConditionOperationType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeFreeFlightBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeFreeFlightType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeFrictionDeviceBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeFrictionDeviceType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeFrictionEstimateBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeFrictionEstimateType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeFuelBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeFuelType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeGeoBorderBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeGeoBorderType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeGradeSeparationBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeGradeSeparationType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeGroundLightingBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeGroundLightingType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeGuidanceLineBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeGuidanceLineType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeHeightReferenceBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeHeightReferenceType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeHelicopterPerformanceBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeHelicopterPerformanceType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeHoldingCategoryBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeHoldingCategoryType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeHoldingUsageBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeHoldingUsageType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeHoldingUseBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeHoldingUseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeIATABaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeIATAType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeICAOBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeICAOType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeILSBackCourseBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeILSBackCourseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeIntegrityLevelILSBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeIntegrityLevelILSType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeIntensityStandByBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeIntensityStandByType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeLanguageBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeLanguageType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeLevelBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeLevelSeriesBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeLevelSeriesType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeLevelTableDesignatorBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeLevelTableDesignatorType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeLevelType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeLightHoldingPositionBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeLightHoldingPositionType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeLightingJARBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeLightingJARType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeLightIntensityBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeLightIntensityType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeLightSourceBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeLightSourceType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeLoadingBridgeBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeLoadingBridgeType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeLocationQualifierBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeLocationQualifierType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeLogicalOperatorBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeLogicalOperatorType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeMarkerBeaconSignalBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeMarkerBeaconSignalType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeMarkingConditionBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeMarkingConditionType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeMarkingStyleBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeMarkingStyleType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeMeteoConditionsBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeMeteoConditionsType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeMilitaryOperationsBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeMilitaryOperationsType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeMilitaryRoutePointBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeMilitaryRoutePointType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeMilitaryStatusBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeMilitaryStatusType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeMilitaryTrainingBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeMilitaryTrainingType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeMinimaFinalApproachPathBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeMinimaFinalApproachPathType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeMinimumAltitudeBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeMinimumAltitudeType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeMinimumHeightBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeMinimumHeightType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeMissedApproachBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeMissedApproachType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeMLSAzimuthBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeMLSAzimuthType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeMLSChannelBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeMLSChannelType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeNavaidDesignatorBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeNavaidDesignatorType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeNavaidPurposeBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeNavaidPurposeType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeNavaidServiceBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeNavaidServiceType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeNavigationAreaBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeNavigationAreaRestrictionBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeNavigationAreaRestrictionType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeNavigationAreaType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeNavigationEquipmentBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeNavigationEquipmentType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeNavigationSpecificationBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeNavigationSpecificationType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeNDBUsageBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeNDBUsageType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeNitrogenBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeNitrogenType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeNorthReferenceBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeNorthReferenceType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeNotePurposeBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeNotePurposeType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeObstacleAreaBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeObstacleAreaType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeObstacleAssessmentSurfaceBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeObstacleAssessmentSurfaceType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeObstructionIdSurfaceZoneBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeObstructionIdSurfaceZoneType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeOilBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeOilType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeOperationAirportHeliportBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeOperationAirportHeliportType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeOperationManoeuvringAreaBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeOperationManoeuvringAreaType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeOrganisationBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeOrganisationDesignatorBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeOrganisationDesignatorType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeOrganisationHierarchyBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeOrganisationHierarchyType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeOrganisationType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeOxygenBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeOxygenType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodePARBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodePARType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodePassengerServiceBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodePassengerServiceType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodePCNMethodBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodePCNMethodType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodePCNPavementBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodePCNPavementType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodePCNSubgradeBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodePCNSubgradeType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodePCNTyrePressureBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodePCNTyrePressureType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodePilotControlledLightingBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodePilotControlledLightingType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodePositionInILSBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodePositionInILSType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodePrimaryRadarBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodePrimaryRadarType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeProcedureAvailabilityBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeProcedureAvailabilityType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeProcedureCodingStandardBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeProcedureCodingStandardType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeProcedureDistanceBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeProcedureDistanceType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeProcedureFixRoleBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeProcedureFixRoleType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeProcedurePhaseBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeProcedurePhaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeProtectAreaSectionBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeProtectAreaSectionType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeRadarServiceBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeRadarServiceType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeRadioEmissionBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeRadioEmissionType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeRadioFrequencyAreaBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeRadioFrequencyAreaType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeRadioSignalBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeRadioSignalType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeReferenceRoleBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeReferenceRoleType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeReflectorBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeReflectorType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeRelativePositionBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeRelativePositionType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeRNPBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeRNPType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeRoadBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeRoadType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeRouteAvailabilityBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeRouteAvailabilityType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeRouteBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeRouteDesignatorLetterBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeRouteDesignatorLetterType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeRouteDesignatorPrefixBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeRouteDesignatorPrefixType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeRouteDesignatorSuffixBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeRouteDesignatorSuffixType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeRouteNavigationBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeRouteNavigationType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeRouteOriginBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeRouteOriginType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeRouteSegmentPathBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeRouteSegmentPathType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeRouteType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeRuleProcedureBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeRuleProcedureTitleBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeRuleProcedureTitleType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeRuleProcedureType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeRunwayBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeRunwayElementBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeRunwayElementType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeRunwayMarkingBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeRunwayMarkingType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeRunwayPointRoleBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeRunwayPointRoleType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeRunwayProtectionAreaBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeRunwayProtectionAreaType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeRunwaySectionBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeRunwaySectionType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeRunwayType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeRVRReadingBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeRVRReadingType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeRVSMBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeRVSMPointRoleBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeRVSMPointRoleType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeRVSMType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeSafeAltitudeBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeSafeAltitudeType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeSegmentPathBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeSegmentPathType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeSegmentTerminationBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeSegmentTerminationType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeServiceATCBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeServiceATCType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeServiceATFMBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeServiceATFMType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeServiceGroundControlBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeServiceGroundControlType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeServiceInformationBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeServiceInformationType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeServiceSARBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeServiceSARType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeSideBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeSideType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeSignalPerformanceILSBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeSignalPerformanceILSType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeSpecialDateBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeSpecialDateType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeSpecialNavigationChainDesignatorBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeSpecialNavigationChainDesignatorType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeSpecialNavigationStationBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeSpecialNavigationStationType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeSpecialNavigationSystemBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeSpecialNavigationSystemType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeSpeedReferenceBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeSpeedReferenceType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeStandbyPowerBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeStandbyPowerType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeStatusAirportBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeStatusAirportType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeStatusAirspaceBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeStatusAirspaceType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeStatusConstructionBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeStatusConstructionType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeStatusNavaidBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeStatusNavaidType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeStatusOperationsBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeStatusOperationsType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeStatusServiceBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeStatusServiceType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeSurfaceCompositionBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeSurfaceCompositionType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeSurfaceConditionBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeSurfaceConditionType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeSurfacePreparationBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeSurfacePreparationType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeSystemActivationBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeSystemActivationType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeTAABaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeTAAType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeTACANChannelBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeTACANChannelType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeTaxiwayBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeTaxiwayElementBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeTaxiwayElementType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeTaxiwaySectionBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeTaxiwaySectionType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeTaxiwayType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeTelecomNetworkBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeTelecomNetworkType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeTimeEventBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeTimeEventCombinationBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeTimeEventCombinationType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeTimeEventType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeTimeReferenceBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeTimeReferenceType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeTLOFSectionBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeTLOFSectionType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeTrajectoryBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeTrajectoryType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeTransponderBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeTransponderType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeUnitBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeUnitDependencyBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeUnitDependencyType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeUnitType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeUpperAlphaBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeUpperAlphaType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeUsageLimitationBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeUsageLimitationType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeUUIDBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeUUIDType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeValueInterpretationBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeValueInterpretationType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeVASISBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeVASISType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeVerticalDatumBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeVerticalDatumType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeVerticalReferenceBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeVerticalReferenceType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeVerticalStructureBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeVerticalStructureMarkingBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeVerticalStructureMarkingType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeVerticalStructureMaterialBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeVerticalStructureMaterialType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeVerticalStructureType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeVisualDockingGuidanceBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeVisualDockingGuidanceType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeVORBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeVORType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeWakeTurbulenceBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeWakeTurbulenceType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeWorkAreaBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeWorkAreaType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeYesNoBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [CodeYesNoType] contains letters in Upper case.
+WARNING: The stereotype of Class [DateBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [DateMonthDayBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [DateMonthDayType] contains letters in Upper case.
+WARNING: The stereotype of Class [DateTimeBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [DateTimeType] contains letters in Upper case.
+WARNING: The stereotype of Class [DateType] contains letters in Upper case.
+WARNING: The stereotype of Class [DateYearBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [DateYearType] contains letters in Upper case.
+WARNING: The stereotype of Class [NoNumberBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [NoNumberType] contains letters in Upper case.
+WARNING: The stereotype of Class [NoSequenceBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [NoSequenceType] contains letters in Upper case.
+WARNING: The stereotype of Class [TextAddressBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [TextAddressType] contains letters in Upper case.
+WARNING: The stereotype of Class [TextDesignatorBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [TextDesignatorType] contains letters in Upper case.
+WARNING: The stereotype of Class [TextInstructionBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [TextInstructionType] contains letters in Upper case.
+WARNING: The stereotype of Class [TextNameBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [TextNameType] contains letters in Upper case.
+WARNING: The stereotype of Class [TextNoteBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [TextNoteType] contains letters in Upper case.
+WARNING: The stereotype of Class [TextPhoneBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [TextPhoneType] contains letters in Upper case.
+WARNING: The stereotype of Class [TextPropertyNameBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [TextPropertyNameType] contains letters in Upper case.
+WARNING: The stereotype of Class [TextRemarkBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [TextRemarkType] contains letters in Upper case.
+WARNING: The stereotype of Class [TextSIDSTARDesignatorBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [TextSIDSTARDesignatorType] contains letters in Upper case.
+WARNING: The stereotype of Class [TimeBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [TimeType] contains letters in Upper case.
+WARNING: The stereotype of Class [UomDepthType] contains letters in Upper case.
+WARNING: The stereotype of Class [UomDistanceType] contains letters in Upper case.
+WARNING: The stereotype of Class [UomDistanceVerticalType] contains letters in Upper case.
+WARNING: The stereotype of Class [UomDurationType] contains letters in Upper case.
+WARNING: The stereotype of Class [UomFLType] contains letters in Upper case.
+WARNING: The stereotype of Class [UomFrequencyType] contains letters in Upper case.
+WARNING: The stereotype of Class [UomLightIntensityType] contains letters in Upper case.
+WARNING: The stereotype of Class [UomPressureType] contains letters in Upper case.
+WARNING: The stereotype of Class [UomSpeedType] contains letters in Upper case.
+WARNING: The stereotype of Class [UomTemperatureType] contains letters in Upper case.
+WARNING: The stereotype of Class [UomWeightType] contains letters in Upper case.
+WARNING: The stereotype of Class [ValAlarmLimitBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [ValAlarmLimitType] contains letters in Upper case.
+WARNING: The stereotype of Class [ValAngleBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [ValAngleType] contains letters in Upper case.
+WARNING: The stereotype of Class [ValBearingBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [ValBearingType] contains letters in Upper case.
+WARNING: The stereotype of Class [ValChannelNumberBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [ValChannelNumberType] contains letters in Upper case.
+WARNING: The stereotype of Class [ValDepthBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [ValDepthType] contains letters in Upper case.
+WARNING: The stereotype of Class [ValDistanceBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [ValDistanceSignedBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [ValDistanceSignedType] contains letters in Upper case.
+WARNING: The stereotype of Class [ValDistanceType] contains letters in Upper case.
+WARNING: The stereotype of Class [ValDistanceVerticalBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [ValDistanceVerticalType] contains letters in Upper case.
+WARNING: The stereotype of Class [ValDurationBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [ValDurationType] contains letters in Upper case.
+WARNING: The stereotype of Class [ValFLBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [ValFLType] contains letters in Upper case.
+WARNING: The stereotype of Class [ValFrequencyBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [ValFrequencyType] contains letters in Upper case.
+WARNING: The stereotype of Class [ValFrictionBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [ValFrictionType] contains letters in Upper case.
+WARNING: The stereotype of Class [ValHexBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [ValHexType] contains letters in Upper case.
+WARNING: The stereotype of Class [ValLCNBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [ValLCNType] contains letters in Upper case.
+WARNING: The stereotype of Class [ValLightIntensityBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [ValLightIntensityType] contains letters in Upper case.
+WARNING: The stereotype of Class [ValMagneticVariationBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [ValMagneticVariationChangeBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [ValMagneticVariationChangeType] contains letters in Upper case.
+WARNING: The stereotype of Class [ValMagneticVariationType] contains letters in Upper case.
+WARNING: The stereotype of Class [ValPCNBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [ValPCNType] contains letters in Upper case.
+WARNING: The stereotype of Class [ValPercentBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [ValPercentType] contains letters in Upper case.
+WARNING: The stereotype of Class [ValPressureBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [ValPressureType] contains letters in Upper case.
+WARNING: The stereotype of Class [ValSlopeBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [ValSlopeType] contains letters in Upper case.
+WARNING: The stereotype of Class [ValSpeedBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [ValSpeedType] contains letters in Upper case.
+WARNING: The stereotype of Class [ValTemperatureBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [ValTemperatureType] contains letters in Upper case.
+WARNING: The stereotype of Class [ValWeightBaseType] contains letters in Upper case.
+WARNING: The stereotype of Class [ValWeightType] contains letters in Upper case.
+WARNING: The stereotype of Class [XHTMLType] contains letters in Upper case.
+Processing package AIXM Data Types
+Processing package TestExt Features
+WARNING: The stereotype of Class [TestCodelist] contains letters in Upper case.
+WARNING: The stereotype of Class [TestDataType] contains letters in Upper case.
+Processing package TestExt DataTypes
+Processing package TestExt Messages
+finished!
+Closing EA connection ...
+Disconnected from the target VM, address: '127.0.0.1:58038', transport: 'socket'
+
+Process finished with exit code 0

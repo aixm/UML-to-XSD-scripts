@@ -1,0 +1,50 @@
+################# 20160310
+
+#1 redesign the "all features" mode and extend it to objects: instead of adding of elements inside AIXM feature schema, all the AIXM features must be automatically extended in the extension featyure schema + if the “All Features” is active, the AIXMTimeSliceExtension element must not have a substitutionGroup because aixm:AbstractAIXMTimeSliceExtension does not exist + the mecanism must also apply to AIXMObject + the result XSD must be valid in OxygenXML
+
+#2 [for XSD validity] nilreason removal: remove the adding of nilreason attribute (but nillable=true must stay) - The nilReason attribute adding (#5 in the former version changes) should be cancelled because it is already comprised either inside the gml:AssociationAttributeGroup or inside the AbstractAIXMPropertyType, which together encompass all the cases where this attribute should have been added.
+
+#3 [for XSD validity] abstract objects schema: add the latest version of the abstract objects schema to the output in order to check validity
+
+#4 [for XSD validity] extension EAP adaptations (testext.eap): add required import/include links on extension features, datatypes and message + set aixm:version 5.1.1 on aixm feat and datatypes + set 5.1.1 xsd:namespace on aixm feat and datatypes + all the extension packages should have the AIXM:fileLocation properly defined in order to output extension schemas that are consistent with themselves (both in the extension subfolder). Currently only the extension datatypes package has this property defined + The role from TestObject to TestChoice must have a name + The roles from TestChoice to TestChoice1, TestChoice2 & TestChoice3 must have a name + split in two parts: all feature example and allthe rest example + other fixes
+
+################# 20160223
+
+# bugfix: AIXM::fileLocation not found
+Description: during the generation of the extension features XSD, the AIXM::fileLocation property was wrongly read (it was from the AIXM feature package GUID instead of from the selected package)
+This issue has been fixed.
+
+################# 20160107
+
+#1 UPDATE GML & XLINK SCHEMA LOCATIONS
+Description: Schema location is not generated correctly for GML and Xlink schemas. It should be lik this: <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/> and <import namespace="http://www.w3.org/1999/xlink" schemaLocation="http://www.w3.org/1999/xlink.xsd"/>
+Example: http://www.aixm.aero/gallery/content/public/schema/5.1.1/draft_0.7/AIXM_Features.xsd
+
+#2 ADD "maxOccurs" FOR ZERO-TO-MANY CHOICES
+Description: when there is a relationship to a <<choice>> element and it has a 0..* multiplicity, the script should add the attribute maxOccurs (default for maxOccurs is 1). Check also that 0..x multiplicities are also fixed (e.g. SafeAltitudeArea that has a 0..2 multiplicity, maxOccurs="2" is also missing). Add also a on/off checkbox for this fix because the core AIXM schema must keep the bug for backward compatibility purposes ! Example : MarkingElement (it has a 0..* choice association towards ElevatedPoint, ElevatedCurve and ElevatedSurface) (the attribute maxOccurs="unbounded" should be added to the choice elements) (another example : ProcedurePropertyGroup / Guidance choice)
+
+#3 INCLUDE/FIX ANNOTATIONS
+Description: annotations should be included in the XSD output. The texts that are to be turned into XSD annotations are : feature descriptions (the texts that are visible in the note that we can see in the lower-right corner when clicking the class in EA), attributes descriptions (inside class properties) and role descriptions (idem, but very few are currently non-void). Other textual information are to be ignored. These annotations to be generated inside the definition of the feature/attribute/role where was written the note (inside the <element>) See also here for a fully annotated 5.1 version : http://www.aixm.aero/gallery/content/public/AIXM51/AIXM-5-1-20100201-xsd_with_annotations.zip, that comes from the download page http://www.aixm.aero/public/standard_page/download.html ("annotated AIXM XML schema")
+Remark: a “on/off” checkbox was already present (probably from the previous release that already generated the feature annotations) and has been kept as it was (but switched to "active" by default in order to avoid missing the annotations by mistake). 
+
+#4 USE RELATIVE XSD LOCATIONS FOR EXTENSIONS
+Description: for extensions XSDs, all the relative links to AIXM schema should use relative paths e.g. ../../.. Only to be applied to the two “extension” outputs. Use the namespace "AIXM::fileLocation" in EA in order to contain the path of the extension (e.g. ./extension/EUR/eASM/v3.5), and count the number of [back/]slashes, then set the location accordingly. Do not create the folders in the output files. No checkbox, do it in all cases (watch out that xlink and gml will become absolute in the next version)
+
+#5 MAKE LINKED CLASSES ELEMENTS "NILABLE"
+Description: elements that results from an association with a linked association class, which also points to a class with stereotype "object", were missing the nilable='true' attribute
+Example : Airspace (feature) >[AirspaceGeometryComponent]> AirspaceVolume (object) : <element minOccurs="0" name="theAirspaceVolume" type="ext:AirspaceVolumePropertyType"/> should have the nillable="true" attribute + check also that AirspaceVolumePropertyType has <attribute name="nilReason" type="gml:NilReasonEnumeration"/>
+
+#6 SETUP A DEDICATED SET OF SAMPLE FILES
+Description: create a new EA extension from scratch that cover all the main cases in order to replace eAsm that is currently used but is subject to changes. 
+
+#7 IMPLEMENT THE "ALL FEATURES" MECANISM
+Description: the scripts should check if there is an abstract to the feature AIXMTimeslice, and if it is the case, process the class and add the XSD content to all the featuresTimeslices (currently done through an XSLT file). This only concerns features, not objects. 
+Remark: the EAP extension has been completed with such types of elements.
+
+#8 REVIEW DOCUMENTATION
+Description: review the document in order to make sure everything related to the script is accurate and correct. Use "suggestion mode" ! (same thing than "track changes" from Word) + update the the examples and screenshots with the new extension. Here is the link to the document : https://docs.google.com/document/d/1d9kJli6AT6MiuGDcLgAcMs-Wim5I-cxbiPhwSPc5WAM/edit#heading=h.gjdgxs 
+Remark: it seemed to us that the section about Rational Rose and the screenshots from XMLSpy were not necessary to be updated, please tell us if it is required.
+
+#################
+
+(no version changes kept before)

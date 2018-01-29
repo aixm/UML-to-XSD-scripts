@@ -1,0 +1,52 @@
+##########################################################################
+##########################################################################
+
+Copyright (c) 2012, EUROCONTROL
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:
+
+    * Redistributions of source code must retain the above copyright 
+      notice, this list of conditions and the following disclaimer.
+    * Redistributions in binary form must reproduce the above copyright
+      notice, this list of conditions and the following disclaimer in the
+      documentation and/or other materials provided with the distribution.
+    * Neither the name of EUROCONTROL nor the names of its contributors
+      may be used to endorse or promote products derived from this software
+      without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE
+LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+POSSIBILITY OF SUCH DAMAGE.
+
+##########################################################################
+##########################################################################
+
+
+fixm_guid_package_core = {D7A4A9D5-11C3-4706-8D89-74C27C53664D}
+fixm_guid_package_base = {D021BC90-BAF1-4f5b-A5E7-EA22173DEA00}
+fixm_guid_package_foundation = {7B759E0E-C52C-4ae5-83D0-FC1CD325FAD9}
+fixm_guid_package_xsd_schema_datatypes = {B4B4F82F-2CF3-4b84-84A0-6C527442A244}
+
+fixm_default_core_version = 1.0
+fixm_default_target_namespace = http://www.fixm.aero/fx/1.0
+fixm_default_target_namespace_prefix = fx
+
+fixm_base_target_namespace = http://www.fixm.aero/base/1.0
+fixm_base_target_namespace_prefix = base
+
+fixm_stereotype_choice = choice
+fixm_stereotype_enumeration = enumeration
+
+fixm_tagged_value_name_definition_source = FIXM::DefinitionSource
+fixm_tagged_value_name_definition_alternate_names = FIXM::AlternateNames
+fixm_tagged_value_name_definition_abbreviations = FIXM::Abbreviations

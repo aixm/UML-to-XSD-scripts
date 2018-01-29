@@ -1,0 +1,117 @@
+##########################################################################
+##########################################################################
+
+Copyright (c) 2012, EUROCONTROL
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:
+
+    * Redistributions of source code must retain the above copyright 
+      notice, this list of conditions and the following disclaimer.
+    * Redistributions in binary form must reproduce the above copyright
+      notice, this list of conditions and the following disclaimer in the
+      documentation and/or other materials provided with the distribution.
+    * Neither the name of EUROCONTROL nor the names of its contributors
+      may be used to endorse or promote products derived from this software
+      without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE
+LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+POSSIBILITY OF SUCH DAMAGE.
+
+##########################################################################
+##########################################################################
+
+
+airm_root_package_guid = {526C38EE-D7D4-468d-BCD2-DC4B2F2367E8}
+airm_foundation_package_guid = {00E1F6CB-2C8B-4dbe-9C34-889C799D3AA2}
+airm_consolidated_logical_model_package_guid = {6CE3141E-F2D8-4f47-AEB6-49FED873DBDB}
+airm_information_model_package_guid = {A04B0988-6959-400f-AD70-35D16B90E91B}
+
+airm_consolidated_logical_model_datatypes_package_guid = {75CAE0BF-EB1F-47f8-97E9-279632505FA1}
+airm_consolidated_logical_model_enumeration_package = {ECE2722E-77EB-4adb-9DDC-70E901D5AEFA}
+airm_consolidated_logical_model_identifier_package = {95B3EB19-E7D0-4e63-8F7D-0C4A75C58061}
+airm_consolidated_logical_model_types_package = {25807499-7EA0-4474-A59C-06FD57FA2804}
+airm_consolidated_logical_model_constructed_types_package_guid = {12A75889-D1ED-4b5a-886A-5012A7BD8220}
+airm_consolidated_logical_model_subject_fields_package_guid = {81B37B65-E8C1-409f-8BFC-4E7F7FF5528D}
+
+airm_information_model_subject_fields_package_guid = {9564C94E-3DDD-4666-9DBE-CCA7E560CF76}
+
+airm_parking_area_package_guid = {464DF16D-603A-4c50-8220-66FDDCE920CC}
+airm_parking_area_deprecated_package_guid = {AE56509E-DADF-448e-BF04-267ACCBF42DD}
+airm_parking_area_unprocessed_package_guid = {8E9F8F3C-D9A6-47c4-BECB-31F41C1D9FB5}
+airm_parking_area_out_of_scope_package_guid = {B44115E8-795C-434e-9791-030FBA741191}
+airm_proposals_package_guid = {C788EF74-B22C-49cb-B796-A0996C770406}
+
+
+airm_sql_connection_string = AIRM --- DBType=1;Connect=Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=sparx;Data Source=hhbruc001\hhintlive 
+
+
+airm_tagged_value_name_mega_unique_identifier = MEGA:UniqueIdentifier
+airm_tagged_value_name_definition_source = Definition:Source
+airm_tagged_value_name_definition_status = Definition:Status
+airm_tagged_value_name_definition_abbreviation = Definition:Abbreviation
+airm_tagged_value_name_definition_synonyms = Definition:Synonyms
+airm_tagged_value_name_definition_in_lexicon = Definition:InLexicon
+
+airm_tagged_value_definition_status_default_value = Initial Proposal
+airm_tagged_value_definition_in_lexicon_default_value = No
+
+
+airm_glossary_column_name = 2
+airm_glossary_column_abbreviation = 3
+airm_glossary_column_definition = 4
+airm_glossary_column_definition_source = 7
+airm_glossary_column_author = 8
+airm_glossary_column_synonym = 22
+airm_glossary_column_status =23
+airm_glossary_column_uml_type = 24
+airm_glossary_column_guid = 25
+airm_glossary_column_package_hierarchy = 26
+airm_glossary_first_editable_row = 3
+
+
+airm_export_to_mega_first_editable_row = 2
+airm_export_to_mega_datamodel_column_mega_id = 0
+airm_export_to_mega_datamodel_column_short_name = 1
+airm_export_to_mega_datamodel_column_comment = 2
+airm_export_to_mega_datamodel_column_owner_datamodel = 3
+airm_export_to_mega_datamodel_column_owner_packager = 5
+airm_export_to_mega_datamodel_column_naf_architecture_view = 6
+airm_export_to_mega_datamodel_column_guid = 7
+airm_export_to_mega_entity_column_mega_id = 0
+airm_export_to_mega_entity_column_short_name = 1
+airm_export_to_mega_entity_column_owner_data_model = 2
+airm_export_to_mega_entity_column_comment = 3
+airm_export_to_mega_entity_column_guid = 4
+airm_export_to_mega_attribute_column_mega_id = 0
+airm_export_to_mega_attribute_column_short_name = 1
+airm_export_to_mega_attribute_column_entity_dm = 2
+airm_export_to_mega_attribute_column_comment = 3
+airm_export_to_mega_attribute_column_guid = 4
+
+
+airm_deprecated_tagged_value_name_source = Source
+airm_deprecated_tagged_value_name_contribution_source = ContributionSource
+airm_deprecated_tagged_value_name_persistence = persistence
+airm_deprecated_tagged_value_name_by_value_property_type = byValuePropertyType
+airm_deprecated_tagged_value_name_is_collection = isCollection
+airm_deprecated_tagged_value_name_model_group = modelGroup
+airm_deprecated_tagged_value_name_no_property_type = noPropertyType
+airm_deprecated_tagged_value_name_xsd_derivation = xsdDerivation
+airm_deprecated_tagged_value_name_has_xml_lang = hasXmlLang
+airm_deprecated_tagged_value_name_xml_schema_type = xmlSchemaType
+airm_deprecated_tagged_value_name_status = Status
+airm_deprecated_tagged_value_name_abbreviation = Abbreviation
+airm_deprecated_tagged_value_name_synonyms = Synonyms
+airm_deprecated_tagged_value_name_definition_source = DefinitionSource
+airm_deprecated_tagged_value_name_contributor = Contributor

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema attributeFormDefault="unqualified"
+    elementFormDefault="qualified"
+    targetNamespace="http://www.aixm.aero/schema/5.1.1/extensions/eur/testext"
+    version="0.9.7" xmlns="http://www.w3.org/2001/XMLSchema"
+    xmlns:aixm="http://www.aixm.aero/schema/5.1.1"
+    xmlns:gml="http://www.opengis.net/gml/3.2"
+    xmlns:testext="http://www.aixm.aero/schema/5.1.1/extensions/eur/testext"
+    xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <import namespace="http://www.w3.org/1999/xlink" schemaLocation="http://www.w3.org/1999/xlink.xsd"/>
+    <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
+    <import namespace="http://www.aixm.aero/schema/5.1.1" schemaLocation="../../../AIXM_Features.xsd"/>
+    <include schemaLocation="./TestExt_Feature.xsd"/>
+    <element name="TestBasicMessage"
+        substitutionGroup="gml:AbstractFeature" type="testext:TestBasicMessageType">
+        <annotation>
+            <appinfo>
+                <gml:description>Test annotation for Message</gml:description>
+            </appinfo>
+        </annotation>
+    </element>
+    <complexType name="TestBasicMessageType">
+        <complexContent>
+            <extension base="aixm:AbstractAIXMMessageType">
+                <sequence>
+                    <group ref="testext:TestBasicMessagePropertyGroup"/>
+                </sequence>
+            </extension>
+        </complexContent>
+    </complexType>
+    <group name="TestBasicMessagePropertyGroup">
+        <sequence>
+            <element maxOccurs="unbounded" name="hasMember" type="testext:TestBasicMessageMemberPropertyType"/>
+        </sequence>
+    </group>
+    <complexType name="TestBasicMessageMemberPropertyType">
+        <complexContent>
+            <extension base="gml:AbstractFeatureMemberType">
+                <choice maxOccurs="unbounded">
+                    <element ref="testext:TestBasicMessage"/>
+                    <element ref="aixm:Airspace"/>
+                    <element ref="aixm:RouteSegment"/>
+                    <element ref="aixm:Route"/>
+                    <element ref="aixm:Unit"/>
+                </choice>
+            </extension>
+        </complexContent>
+    </complexType>
+</schema>

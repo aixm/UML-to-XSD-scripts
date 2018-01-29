@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema attributeFormDefault="unqualified"
+    elementFormDefault="qualified"
+    targetNamespace="http://www.aixm.aero/schema/5.1.1/extensions/eur/testext"
+    version="5.1.1.a" xmlns="http://www.w3.org/2001/XMLSchema"
+    xmlns:aixm="http://www.aixm.aero/schema/5.1.1"
+    xmlns:gml="http://www.opengis.net/gml/3.2"
+    xmlns:testext="http://www.aixm.aero/schema/5.1.1/extensions/eur/testext"
+    xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
+    <import namespace="http://www.aixm.aero/schema/5.1.1" schemaLocation="../../../AIXM_DataTypes.xsd"/>
+    <simpleType name="TestCodelist">
+        <annotation>
+            <appinfo>
+                <gml:description>Test annotation for CodeList</gml:description>
+            </appinfo>
+        </annotation>
+        <union>
+            <simpleType>
+                <restriction base="xsd:string">
+                    <enumeration value="CODE_1">
+                        <!--No annotation found for this element.-->
+                    </enumeration>
+                    <enumeration value="CODE_2">
+                        <!--No annotation found for this element.-->
+                    </enumeration>
+                    <enumeration value="CODE_3">
+                        <!--No annotation found for this element.-->
+                    </enumeration>
+                </restriction>
+            </simpleType>
+            <simpleType>
+                <restriction base="xsd:string">
+                    <pattern value="OTHER(:(\w|_){1,58})?"/>
+                </restriction>
+            </simpleType>
+        </union>
+    </simpleType>
+    <simpleType name="TestDataType">
+        <annotation>
+            <appinfo>
+                <gml:description>Test annotation for DataType</gml:description>
+            </appinfo>
+        </annotation>
+        <restriction base="testext:TestCodelist"/>
+    </simpleType>
+</schema>

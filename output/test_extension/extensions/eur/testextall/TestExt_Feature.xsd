@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema attributeFormDefault="unqualified"
+    elementFormDefault="qualified"
+    targetNamespace="http://www.aixm.aero/schema/5.1.1/extensions/eur/testext"
+    version="5.1.1.a" xmlns="http://www.w3.org/2001/XMLSchema"
+    xmlns:aixm="http://www.aixm.aero/schema/5.1.1"
+    xmlns:gml="http://www.opengis.net/gml/3.2"
+    xmlns:testext="http://www.aixm.aero/schema/5.1.1/extensions/eur/testext"
+    xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <import namespace="http://www.w3.org/1999/xlink" schemaLocation="http://www.w3.org/1999/xlink.xsd"/>
+    <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
+    <import namespace="http://www.aixm.aero/schema/5.1.1" schemaLocation="../../../AIXM_Features.xsd"/>
+    <include schemaLocation="./TestExt_DataTypes.xsd"/>
+    <element name="AirspaceActivationExtension"
+        substitutionGroup="aixm:AbstractAirspaceActivationExtension" type="testext:AirspaceActivationExtensionType">
+        <annotation>
+            <appinfo>
+                <gml:description>Test annotation for Feature</gml:description>
+            </appinfo>
+        </annotation>
+    </element>
+    <complexType name="AirspaceActivationExtensionType">
+        <complexContent>
+            <extension base="aixm:AbstractExtensionType">
+                <sequence>
+                    <group ref="testext:AirspaceActivationExtensionPropertyGroup"/>
+                </sequence>
+            </extension>
+        </complexContent>
+    </complexType>
+    <group name="AirspaceActivationExtensionPropertyGroup">
+        <sequence>
+            <element minOccurs="0" name="testDesignator" nillable="true" type="aixm:CodeAirspaceDesignatorType">
+                <!--No annotation found for this element.-->
+            </element>
+            <element maxOccurs="unbounded" minOccurs="0" name="hostFIR"
+                nillable="true" type="aixm:AirspacePropertyType"/>
+            <element maxOccurs="1" minOccurs="0" name="requstor"
+                nillable="true" type="aixm:UnitPropertyType"/>
+            <element maxOccurs="unbounded" minOccurs="0"
+                name="isTestingWith" nillable="true" type="testext:TestObjectPropertyType">
+                <annotation>
+                    <appinfo>
+                        <gml:description>Test annotation for connector/role</gml:description>
+                    </appinfo>
+                </annotation>
+            </element>
+        </sequence>
+    </group>
+    <element name="RouteAvailabilityExtension"
+        substitutionGroup="aixm:AbstractRouteAvailabilityExtension" type="testext:RouteAvailabilityExtensionType">
+        <annotation>
+            <appinfo>
+                <gml:description>Test annotation for Feature</gml:description>
+            </appinfo>
+        </annotation>
+    </element>
+    <complexType name="RouteAvailabilityExtensionType">
+        <complexContent>
+            <extension base="aixm:AbstractExtensionType">
+                <sequence>
+                    <group ref="testext:RouteAvailabilityExtensionPropertyGroup"/>
+                </sequence>
+            </extension>
+        </complexContent>
+    </complexType>
+    <group name="RouteAvailabilityExtensionPropertyGroup">
+        <sequence>
+            <element minOccurs="0" name="testProperty" nillable="true" type="testext:TestDataType">
+                <!--No annotation found for this element.-->
+            </element>
+            <element maxOccurs="unbounded" minOccurs="0" name="hostFIR"
+                nillable="true" type="aixm:AirspacePropertyType"/>
+            <element maxOccurs="unbounded" minOccurs="0"
+                name="causeOfLimitation" nillable="true" type="aixm:AirspacePropertyType"/>
+        </sequence>
+    </group>
+    <element name="TestAssociationClassToFeature" type="testext:TestAssociationClassToFeatureType">
+        <annotation>
+            <appinfo>
+                <gml:description>Test annotation for Object</gml:description>
+            </appinfo>
+        </annotation>
+    </element>
+    <complexType name="TestAssociationClassToFeatureType">
+        <complexContent>
+            <extension base="aixm:AbstractAIXMObjectType">
+                <sequence>
+                    <group ref="testext:TestAssociationClassToFeaturePropertyGroup"/>
+                    <element maxOccurs="unbounded" minOccurs="0" name="extension">
+                        <complexType>
+                            <choice>
+                                <element ref="testext:AbstractTestAssociationClassToFeatureExtension"/>
+                            </choice>
+                            <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+                        </complexType>
+                    </element>
+                </sequence>
+            </extension>
+        </complexContent>
+    </complexType>
+    <group name="TestAssociationClassToFeaturePropertyGroup">
+        <sequence>
+            <element minOccurs="0" name="testProperty" nillable="true" type="testext:TestDataType">
+                <!--No annotation found for this element.-->
+            </element>
+            <element minOccurs="0" name="theAirspace" nillable="true" type="aixm:AirspacePropertyType"/>
+            <element maxOccurs="unbounded" minOccurs="0"
+                name="annotation" nillable="true" type="aixm:NotePropertyType"/>
+        </sequence>
+    </group>
+    <complexType name="TestAssociationClassToFeaturePropertyType">
+        <complexContent>
+            <extension base="aixm:AbstractAIXMPropertyType">
+                <sequence>
+                    <element ref="testext:TestAssociationClassToFeature"/>
+                </sequence>
+            </extension>
+        </complexContent>
+    </complexType>
+    <element abstract="true"
+        name="AbstractTestAssociationClassToFeatureExtension"
+        substitutionGroup="aixm:AbstractExtension" type="aixm:AbstractExtensionType"/>
+    <element name="TestAssociationClassToObject" type="testext:TestAssociationClassToObjectType">
+        <!--No annotation found for this element.-->
+    </element>
+    <complexType name="TestAssociationClassToObjectType">
+        <complexContent>
+            <extension base="aixm:AbstractAIXMObjectType">
+                <sequence>
+                    <group ref="testext:TestAssociationClassToObjectPropertyGroup"/>
+                    <element maxOccurs="unbounded" minOccurs="0" name="extension">
+                        <complexType>
+                            <choice>
+                                <element ref="testext:AbstractTestAssociationClassToObjectExtension"/>
+                            </choice>
+                            <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+                        </complexType>
+                    </element>
+                </sequence>
+            </extension>
+        </complexContent>
+    </complexType>
+    <group name="TestAssociationClassToObjectPropertyGroup">
+        <sequence>
+            <element minOccurs="0" name="testProperty" nillable="true" type="testext:TestDataType">
+                <annotation>
+                    <appinfo>
+                        <gml:description>Test annotation for property</gml:description>
+                    </appinfo>
+                </annotation>
+            </element>
+            <element minOccurs="0" name="theTestObject" nillable="true" type="testext:TestObjectPropertyType"/>
+            <element maxOccurs="unbounded" minOccurs="0"
+                name="annotation" nillable="true" type="aixm:NotePropertyType"/>
+        </sequence>
+    </group>
+    <complexType name="TestAssociationClassToObjectPropertyType">
+        <complexContent>
+            <extension base="aixm:AbstractAIXMPropertyType">
+                <sequence>
+                    <element ref="testext:TestAssociationClassToObject"/>
+                </sequence>
+            </extension>
+        </complexContent>
+    </complexType>
+    <element abstract="true"
+        name="AbstractTestAssociationClassToObjectExtension"
+        substitutionGroup="aixm:AbstractExtension" type="aixm:AbstractExtensionType"/>
+    <element name="TestChoice1" substitutionGroup="aixm:Curve" type="testext:TestChoice1Type">
+        <!--No annotation found for this element.-->
+    </element>
+    <complexType name="TestChoice1Type">
+        <complexContent>
+            <extension base="aixm:CurveType">
+                <sequence>
+                    <group ref="testext:TestChoice1PropertyGroup"/>
+                </sequence>
+            </extension>
+        </complexContent>
+    </complexType>
+    <group name="TestChoice1PropertyGroup">
+        <sequence>
+            <element minOccurs="0" name="testProperty" nillable="true" type="testext:TestDataType">
+                <!--No annotation found for this element.-->
+            </element>
+        </sequence>
+    </group>
+    <complexType name="TestChoice1PropertyType">
+        <complexContent>
+            <extension base="aixm:AbstractAIXMPropertyType">
+                <sequence>
+                    <element ref="testext:TestChoice1"/>
+                </sequence>
+            </extension>
+        </complexContent>
+    </complexType>
+    <element abstract="true" name="AbstractTestChoice1Extension"
+        substitutionGroup="aixm:AbstractExtension" type="aixm:AbstractExtensionType"/>
+    <element name="TestChoice2" substitutionGroup="aixm:Surface" type="testext:TestChoice2Type">
+        <annotation>
+            <appinfo>
+                <gml:description>.</gml:description>
+            </appinfo>
+        </annotation>
+    </element>
+    <complexType name="TestChoice2Type">
+        <complexContent>
+            <extension base="aixm:SurfaceType">
+                <sequence>
+                    <group ref="testext:TestChoice2PropertyGroup"/>
+                </sequence>
+            </extension>
+        </complexContent>
+    </complexType>
+    <group name="TestChoice2PropertyGroup">
+        <sequence>
+            <element minOccurs="0" name="testProperty" nillable="true" type="testext:TestDataType">
+                <!--No annotation found for this element.-->
+            </element>
+        </sequence>
+    </group>
+    <complexType name="TestChoice2PropertyType">
+        <complexContent>
+            <extension base="aixm:AbstractAIXMPropertyType">
+                <sequence>
+                    <element ref="testext:TestChoice2"/>
+                </sequence>
+            </extension>
+        </complexContent>
+    </complexType>
+    <element abstract="true" name="AbstractTestChoice2Extension"
+        substitutionGroup="aixm:AbstractExtension" type="aixm:AbstractExtensionType"/>
+    <element name="TestChoice3" substitutionGroup="aixm:Point" type="testext:TestChoice3Type">
+        <!--No annotation found for this element.-->
+    </element>
+    <complexType name="TestChoice3Type">
+        <complexContent>
+            <extension base="aixm:PointType">
+                <sequence>
+                    <group ref="testext:TestChoice3PropertyGroup"/>
+                </sequence>
+            </extension>
+        </complexContent>
+    </complexType>
+    <group name="TestChoice3PropertyGroup">
+        <sequence>
+            <element minOccurs="0" name="testProperty" nillable="true" type="testext:TestDataType">
+                <!--No annotation found for this element.-->
+            </element>
+        </sequence>
+    </group>
+    <complexType name="TestChoice3PropertyType">
+        <complexContent>
+            <extension base="aixm:AbstractAIXMPropertyType">
+                <sequence>
+                    <element ref="testext:TestChoice3"/>
+                </sequence>
+            </extension>
+        </complexContent>
+    </complexType>
+    <element abstract="true" name="AbstractTestChoice3Extension"
+        substitutionGroup="aixm:AbstractExtension" type="aixm:AbstractExtensionType"/>
+    <element name="TestObject" type="testext:TestObjectType">
+        <annotation>
+            <appinfo>
+                <gml:description>Test annotation for Object</gml:description>
+            </appinfo>
+        </annotation>
+    </element>
+    <complexType name="TestObjectType">
+        <complexContent>
+            <extension base="aixm:AbstractAIXMObjectType">
+                <sequence>
+                    <group ref="testext:TestObjectPropertyGroup"/>
+                    <element maxOccurs="unbounded" minOccurs="0" name="extension">
+                        <complexType>
+                            <choice>
+                                <element ref="testext:AbstractTestObjectExtension"/>
+                            </choice>
+                            <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+                        </complexType>
+                    </element>
+                </sequence>
+            </extension>
+        </complexContent>
+    </complexType>
+    <group name="TestObjectPropertyGroup">
+        <sequence>
+            <element minOccurs="0" name="testProperty" nillable="true" type="testext:TestDataType">
+                <!--No annotation found for this element.-->
+            </element>
+            <choice>
+                <!--No annotation found for this element.-->
+                <element maxOccurs="1" minOccurs="0" name="_hasChoice1"
+                    nillable="true" type="testext:TestChoice1PropertyType"/>
+                <element maxOccurs="1" minOccurs="0" name="_hasChoice2"
+                    nillable="true" type="testext:TestChoice2PropertyType"/>
+                <element maxOccurs="1" minOccurs="0" name="_hasChoice3"
+                    nillable="true" type="testext:TestChoice3PropertyType"/>
+            </choice>
+            <element maxOccurs="unbounded" minOccurs="0"
+                name="annotation" nillable="true" type="aixm:NotePropertyType"/>
+        </sequence>
+    </group>
+    <complexType name="TestObjectPropertyType">
+        <complexContent>
+            <extension base="aixm:AbstractAIXMPropertyType">
+                <sequence>
+                    <element ref="testext:TestObject"/>
+                </sequence>
+            </extension>
+        </complexContent>
+    </complexType>
+    <element abstract="true" name="AbstractTestObjectExtension"
+        substitutionGroup="aixm:AbstractExtension" type="aixm:AbstractExtensionType"/>
+</schema>

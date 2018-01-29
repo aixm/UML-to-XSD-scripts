@@ -1,0 +1,68 @@
+##########################################################################
+##########################################################################
+
+Copyright (c) 2012, EUROCONTROL
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:
+
+    * Redistributions of source code must retain the above copyright 
+      notice, this list of conditions and the following disclaimer.
+    * Redistributions in binary form must reproduce the above copyright
+      notice, this list of conditions and the following disclaimer in the
+      documentation and/or other materials provided with the distribution.
+    * Neither the name of EUROCONTROL nor the names of its contributors
+      may be used to endorse or promote products derived from this software
+      without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE
+LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+POSSIBILITY OF SUCH DAMAGE.
+
+##########################################################################
+##########################################################################
+
+
+aixm_51_guid_package_xsd_schema_datatypes = {098F1A11-D3ED-4937-9944-DE1C0D05E2CD}
+aixm_51_guid_package_aixm_datatypes = {A6BA0393-FF2B-4886-9F7F-3E7117731152}
+aixm_51_guid_package_aixm_features = {846BF031-3D45-4cba-8486-C860BDEDD177}
+aixm_51_guid_package_iso_19107_geometry = {55CCB3CF-63AF-45b4-936F-95432F0F5893}
+aixm_51_guid_package_aixm_abstract_features = {8F2DFE36-5437-44a8-9891-93D0578BBA1A}
+aixm_51_guid_class_xsd_schema_string = {C5A96D3A-4A10-4236-B1F1-E0D935F6D89D}
+aixm_51_guid_class_aixmtimeslice = {4C40780C-8471-4641-885D-FEA3AE3DADD5}
+aixm_51_guid_class_aixmobject = {70884A63-14D1-4bb1-A1CF-2AFB8C252955}
+
+
+aixm_51_stereotype_codelist = CodeList
+aixm_51_stereotype_datatype = DataType
+aixm_51_stereotype_xsd_facet = XSDfacet
+aixm_51_stereotype_feature = feature
+aixm_51_stereotype_object = object
+aixm_51_stereotype_message = message
+aixm_51_stereotype_choice = choice
+aixm_51_stereotype_collection_member_choice = collectionMemberChoice
+aixm_51_stereotype_extension = extension
+
+
+aixm_tagged_value_core_version = AIXM::coreVersion
+aixm_tagged_value_generate_file_name = AIXM::generateFileName
+aixm_tagged_value_extension_version = AIXM::extensionVersion
+aixm_tagged_value_extension_file_location = AIXM::fileLocation
+
+aixm_51_default_generate_file_name_datatypes = AIXM_DataTypes.xsd
+aixm_51_default_generate_file_name_features = AIXM_Features.xsd
+
+
+aixm_51_default_core_version = 5.1
+aixm_51_default_target_namespace = http://www.aixm.aero/schema/5.1
+aixm_51_default_target_namespace_prefix = aixm
+aixm_51_default_extension_file_location = .
