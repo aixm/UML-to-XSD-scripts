@@ -14,9 +14,16 @@
     <element name="AirspaceActivationExtension"
         substitutionGroup="aixm:AbstractAirspaceActivationExtension" type="testext:AirspaceActivationExtensionType">
         <annotation>
-            <appinfo>
-                <gml:description>Test annotation for Feature</gml:description>
-            </appinfo>
+            <appinfo>deprecated</appinfo>
+            <documentation>
+                <deprecated>
+                    <rationale>specific reason</rationale>
+                    <replacement>&lt;&lt;Feature&gt;&gt;Aerodrome</replacement>
+                    <deprecationVersion>5.2</deprecationVersion>
+                    <deletionVersion>5.3</deletionVersion>
+                </deprecated>
+            </documentation>
+            <documentation>Test annotation for Feature</documentation>
         </annotation>
     </element>
     <complexType name="AirspaceActivationExtensionType">
@@ -40,9 +47,7 @@
             <element maxOccurs="unbounded" minOccurs="0"
                 name="isTestingWith" nillable="true" type="testext:TestObjectPropertyType">
                 <annotation>
-                    <appinfo>
-                        <gml:description>Test annotation for connector/role</gml:description>
-                    </appinfo>
+                    <documentation>Test annotation for connector/role</documentation>
                 </annotation>
             </element>
         </sequence>
@@ -50,9 +55,7 @@
     <element name="RouteAvailabilityExtension"
         substitutionGroup="aixm:AbstractRouteAvailabilityExtension" type="testext:RouteAvailabilityExtensionType">
         <annotation>
-            <appinfo>
-                <gml:description>Test annotation for Feature</gml:description>
-            </appinfo>
+            <documentation>Test annotation for Feature</documentation>
         </annotation>
     </element>
     <complexType name="RouteAvailabilityExtensionType">
@@ -77,9 +80,7 @@
     </group>
     <element name="TestAssociationClassToFeature" type="testext:TestAssociationClassToFeatureType">
         <annotation>
-            <appinfo>
-                <gml:description>Test annotation for Object</gml:description>
-            </appinfo>
+            <documentation>Test annotation for Object</documentation>
         </annotation>
     </element>
     <complexType name="TestAssociationClassToFeatureType">
@@ -87,7 +88,7 @@
             <extension base="aixm:AbstractAIXMObjectType">
                 <sequence>
                     <group ref="testext:TestAssociationClassToFeaturePropertyGroup"/>
-                    <element maxOccurs="unbounded" minOccurs="0" name="extension">
+                    <element maxOccurs="unbounded" minOccurs="0" name="TestAssociationClassToFeatureExtension">
                         <complexType>
                             <choice>
                                 <element ref="testext:AbstractTestAssociationClassToFeatureExtension"/>
@@ -129,7 +130,7 @@
             <extension base="aixm:AbstractAIXMObjectType">
                 <sequence>
                     <group ref="testext:TestAssociationClassToObjectPropertyGroup"/>
-                    <element maxOccurs="unbounded" minOccurs="0" name="extension">
+                    <element maxOccurs="unbounded" minOccurs="0" name="TestAssociationClassToObjectExtension">
                         <complexType>
                             <choice>
                                 <element ref="testext:AbstractTestAssociationClassToObjectExtension"/>
@@ -145,9 +146,7 @@
         <sequence>
             <element minOccurs="0" name="testProperty" nillable="true" type="testext:TestDataType">
                 <annotation>
-                    <appinfo>
-                        <gml:description>Test annotation for property</gml:description>
-                    </appinfo>
+                    <documentation>Test annotation for property</documentation>
                 </annotation>
             </element>
             <element minOccurs="0" name="theTestObject" nillable="true" type="testext:TestObjectPropertyType"/>
@@ -175,6 +174,14 @@
             <extension base="aixm:CurveType">
                 <sequence>
                     <group ref="testext:TestChoice1PropertyGroup"/>
+                    <element maxOccurs="unbounded" minOccurs="0" name="CurveExtension">
+                        <complexType>
+                            <choice>
+                                <element ref="testext:AbstractTestChoice1Extension"/>
+                            </choice>
+                            <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+                        </complexType>
+                    </element>
                 </sequence>
             </extension>
         </complexContent>
@@ -199,9 +206,7 @@
         substitutionGroup="aixm:AbstractExtension" type="aixm:AbstractExtensionType"/>
     <element name="TestChoice2" substitutionGroup="aixm:Surface" type="testext:TestChoice2Type">
         <annotation>
-            <appinfo>
-                <gml:description>.</gml:description>
-            </appinfo>
+            <documentation>.</documentation>
         </annotation>
     </element>
     <complexType name="TestChoice2Type">
@@ -209,6 +214,14 @@
             <extension base="aixm:SurfaceType">
                 <sequence>
                     <group ref="testext:TestChoice2PropertyGroup"/>
+                    <element maxOccurs="unbounded" minOccurs="0" name="SurfaceExtension">
+                        <complexType>
+                            <choice>
+                                <element ref="testext:AbstractTestChoice2Extension"/>
+                            </choice>
+                            <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+                        </complexType>
+                    </element>
                 </sequence>
             </extension>
         </complexContent>
@@ -216,7 +229,18 @@
     <group name="TestChoice2PropertyGroup">
         <sequence>
             <element minOccurs="0" name="testProperty" nillable="true" type="testext:TestDataType">
-                <!--No annotation found for this element.-->
+                <annotation>
+                    <appinfo>deprecated</appinfo>
+                    <documentation>
+                        <deprecated>
+                            <rationale>specific reason</rationale>
+                            <replacement>&lt;&lt;Feature&gt;&gt;Aerodrome&#xd;
+</replacement>
+                            <deprecationVersion>5.2</deprecationVersion>
+                            <deletionVersion>5.3</deletionVersion>
+                        </deprecated>
+                    </documentation>
+                </annotation>
             </element>
         </sequence>
     </group>
@@ -239,6 +263,14 @@
             <extension base="aixm:PointType">
                 <sequence>
                     <group ref="testext:TestChoice3PropertyGroup"/>
+                    <element maxOccurs="unbounded" minOccurs="0" name="PointExtension">
+                        <complexType>
+                            <choice>
+                                <element ref="testext:AbstractTestChoice3Extension"/>
+                            </choice>
+                            <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+                        </complexType>
+                    </element>
                 </sequence>
             </extension>
         </complexContent>
@@ -263,9 +295,7 @@
         substitutionGroup="aixm:AbstractExtension" type="aixm:AbstractExtensionType"/>
     <element name="TestObject" type="testext:TestObjectType">
         <annotation>
-            <appinfo>
-                <gml:description>Test annotation for Object</gml:description>
-            </appinfo>
+            <documentation>Test annotation for Object</documentation>
         </annotation>
     </element>
     <complexType name="TestObjectType">
@@ -273,7 +303,7 @@
             <extension base="aixm:AbstractAIXMObjectType">
                 <sequence>
                     <group ref="testext:TestObjectPropertyGroup"/>
-                    <element maxOccurs="unbounded" minOccurs="0" name="extension">
+                    <element maxOccurs="unbounded" minOccurs="0" name="TestObjectExtension">
                         <complexType>
                             <choice>
                                 <element ref="testext:AbstractTestObjectExtension"/>
@@ -292,12 +322,29 @@
             </element>
             <choice>
                 <!--No annotation found for this element.-->
-                <element maxOccurs="1" minOccurs="0" name="_hasChoice1"
-                    nillable="true" type="testext:TestChoice1PropertyType"/>
-                <element maxOccurs="1" minOccurs="0" name="_hasChoice2"
-                    nillable="true" type="testext:TestChoice2PropertyType"/>
-                <element maxOccurs="1" minOccurs="0" name="_hasChoice3"
-                    nillable="true" type="testext:TestChoice3PropertyType"/>
+                <element maxOccurs="unbounded" minOccurs="0"
+                    name="_hasChoice2" nillable="true" type="testext:TestChoice2PropertyType">
+                    <annotation>
+                        <appinfo>deprecated</appinfo>
+                        <documentation>
+                            <deprecated>
+                                <rationale>specific reason</rationale>
+                                <replacement>&lt;&lt;Feature&gt;&gt;Aerodrome</replacement>
+                                <deprecationVersion>5.2</deprecationVersion>
+                                <deletionVersion>5.3</deletionVersion>
+                            </deprecated>
+                        </documentation>
+                        <documentation>Identifies the marked polygon.</documentation>
+                    </annotation>
+                </element>
+                <element maxOccurs="unbounded" minOccurs="0"
+                    name="_hasChoice3" nillable="true" type="testext:TestChoice3PropertyType">
+                    <!--No annotation found for this element.-->
+                </element>
+                <element maxOccurs="unbounded" minOccurs="0"
+                    name="_hasChoice1" nillable="true" type="testext:TestChoice1PropertyType">
+                    <!--No annotation found for this element.-->
+                </element>
             </choice>
             <element maxOccurs="unbounded" minOccurs="0"
                 name="annotation" nillable="true" type="aixm:NotePropertyType"/>

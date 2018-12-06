@@ -14,9 +14,7 @@
     <element name="TestBasicMessage"
         substitutionGroup="gml:AbstractFeature" type="testext:TestBasicMessageType">
         <annotation>
-            <appinfo>
-                <gml:description>Test annotation for Message</gml:description>
-            </appinfo>
+            <documentation>Test annotation for Message</documentation>
         </annotation>
     </element>
     <complexType name="TestBasicMessageType">
@@ -37,11 +35,11 @@
         <complexContent>
             <extension base="gml:AbstractFeatureMemberType">
                 <choice maxOccurs="unbounded">
-                    <element ref="testext:TestBasicMessage"/>
                     <element ref="aixm:Airspace"/>
-                    <element ref="aixm:RouteSegment"/>
-                    <element ref="aixm:Route"/>
                     <element ref="aixm:Unit"/>
+                    <element ref="aixm:Route"/>
+                    <element ref="aixm:RouteSegment"/>
+                    <element ref="testext:TestBasicMessage"/>
                 </choice>
             </extension>
         </complexContent>

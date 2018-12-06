@@ -206,6 +206,7 @@ public class Mainframe extends JFrame implements EAListener, EAConstants, ToolCo
 
 
 
+
     /**
      * 
      */
@@ -243,7 +244,6 @@ public class Mainframe extends JFrame implements EAListener, EAConstants, ToolCo
                 _openUMLFileButton.setEnabled(true);
             }
         });
-        
         
         JPanel openUMLFileButtonPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
         openUMLFileButtonPanel.add(_openUMLFileButton);

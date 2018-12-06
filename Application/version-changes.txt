@@ -1,3 +1,41 @@
+################# 20181206
+
+A few bugfixes and adaptations 
+
+#1 "Missing child element" bugfix. The following complexType declarations are missing the Abstract.....Extension child elements: CurveType, SurfaceType, PointType, ElevatedCurveType, ElevatedSurfaceType, ElevatedPointType
+
+#2 "Missing 2nd ancestor" bugfix. Missing the 2nd ancestor extension element. Affects all complexTypes that have a second ancestor level, such as: AirportClearanceServiceTimeSliceType, AirportSuppliesServiceTimeSliceType, etc.
+
+#3 "Unnecessary annotation" bugfix. The following groups get an unnecessary child "annotation" element: LinguisticNotePropertyGroup, NotePropertyGroup (which does not exist in the UML model, it seems that the script adds annotation to all classes by default!)
+
+#4 "Choice naming" adaptation. Concatenation of two (or more) <<choice>> classes results in different element names as compared to AIXM 5.1. All choice class roles are included (as compared to only the last one in AIXM 5.1). Affects: FlightConditionElement. FlightConditionElementChoice.SignificantPoint and FlightRoutingElement.FlightRoutingElementChoice.SignificantPoint. (this is not a bug because the result in the XML Schema for this case was not explicitly defined in the UML to XSD Mapping document of AIXM 5.1. However, the result is that the name of the elements resulting from a concatenation of two <<choice>> classes would be different in AIXM 5.1 and AIXM 5.1.1 (or future versions)
+
+#5 "Ampercent escaping" bugfix. AIXM data types that have a pattern including the "&" character get a wrong pattern in the XSD (the & is replaced with "&". Affects the Character3Type
+
+#6 "Unnecessary optional" adaptation. AIXM data types that have a "uom" attribute get an unnecessary use="optional" flag.
+
+#7 "Missing nilReason attribute" bugfix. XHTML data type missing the nilReason attribute
+
+#8 "Incomplete lang attribute". In TextNoteBaseType, attribute lang is missing the type="language", which is specified in the UML model.
+
+#9 "Multiplicity" bugfix. Incorrect multiplicity in XSD for multi-occurring <<choice>> elements. When there is a relationship to a <<choice>> element and it has a 0..* multiplicity, the corresponding XSD <choice> has unspecified multiplicity, therefore equal to one. This creates a discrepancy between the UML and the XSD.
+
+#10 "deprecated" adaptation. Support for <<deprecated>> elements in the AIXM UML model. Elements marked with the stereotype <<deprecated>> in the AIXM UML model shall be transposed into XML schema as describe in the Change Proposal AIXM-344 (https://ext.eurocontrol.int/aixm_confluence/download/attachments/17502270/%5BAIXM-344%5D%20Rules%20for%20deprecation-v1.pdf?version=1&modificationDate=1539937775000&api=v2).
+
+#11 "0..2 cardinality" bugfix. The script did not support associations towards features that have a cardinality different than 0..1 or 0..*. A cardinality such as 0..2 was wrongly generated in the XSD schema without any maxoccurs value, which practically makes it a single occurrence property. This shall be corrected as described in Change Proposal AIXM-142 (https://aixmccb.atlassian.net/secure/attachment/11020/AIXM-142Correctassociationcardinalities.pdf)
+
+#12 "annotation" correction. The script has an option for generating the XML Schema with or without annotations. These annotations correspond to the definitions of the UML model classes, attributes, role names. the current script generates these annotations in the following form, which is too complex and different from previous AIXM versions (such as 5.0/5.1):
+<annotation>
+   <appinfo>
+        <gml:description> xxxxxx</gml:description>
+   </appinfo>
+</annotation>
+Instead, if should generate it as a simple documentation element:
+<annotation>
+    <documentation> xxxxxx</documentation>
+</annotation>
+
+
 ################# 20160310
 
 #1 redesign the "all features" mode and extend it to objects: instead of adding of elements inside AIXM feature schema, all the AIXM features must be automatically extended in the extension featyure schema + if the “All Features” is active, the AIXMTimeSliceExtension element must not have a substitutionGroup because aixm:AbstractAIXMTimeSliceExtension does not exist + the mecanism must also apply to AIXMObject + the result XSD must be valid in OxygenXML
@@ -8,11 +46,13 @@
 
 #4 [for XSD validity] extension EAP adaptations (testext.eap): add required import/include links on extension features, datatypes and message + set aixm:version 5.1.1 on aixm feat and datatypes + set 5.1.1 xsd:namespace on aixm feat and datatypes + all the extension packages should have the AIXM:fileLocation properly defined in order to output extension schemas that are consistent with themselves (both in the extension subfolder). Currently only the extension datatypes package has this property defined + The role from TestObject to TestChoice must have a name + The roles from TestChoice to TestChoice1, TestChoice2 & TestChoice3 must have a name + split in two parts: all feature example and allthe rest example + other fixes
 
+
 ################# 20160223
 
 # bugfix: AIXM::fileLocation not found
 Description: during the generation of the extension features XSD, the AIXM::fileLocation property was wrongly read (it was from the AIXM feature package GUID instead of from the selected package)
 This issue has been fixed.
+
 
 ################# 20160107
 

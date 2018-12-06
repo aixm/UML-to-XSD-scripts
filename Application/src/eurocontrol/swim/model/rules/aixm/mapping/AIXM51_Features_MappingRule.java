@@ -350,7 +350,7 @@ public class AIXM51_Features_MappingRule  extends AbstractMappingRule implements
         {
             Element element = (Element)elementIter.next();
 
-            if(element.GetStereotype().equals(AIXM_51_STEREOTYPE_FEATURE))
+            if(element.GetStereotypeEx().contains(AIXM_51_STEREOTYPE_FEATURE))
             {
                 _root.appendChild(createFeaturePropertyType(element));
                 _root.appendChild(createFeature(element));
@@ -366,7 +366,7 @@ public class AIXM51_Features_MappingRule  extends AbstractMappingRule implements
 
                 _root.appendChild(createAbstractFeatureExtension(element));
             }
-            else if (element.GetStereotype().equals(AIXM_51_STEREOTYPE_OBJECT))
+            else if (element.GetStereotypeEx().contains(AIXM_51_STEREOTYPE_OBJECT))
             {
                     _root.appendChild(createObject(element));
                     _root.appendChild(createObjectType(element));
@@ -450,6 +450,8 @@ public class AIXM51_Features_MappingRule  extends AbstractMappingRule implements
 	{
 	    String name = feature.GetName();	  
 	    org.w3c.dom.Element element = _xmldoc.createElement(XSD_TAG_ELEMENT);
+
+        boolean _includeDeprecation = feature.GetStereotypeEx().contains(AIXM_51_STEREOTYPE_DEPRECATED);
 	    
 	    if(feature.GetAbstract().equals("1"))
 	    {
@@ -471,15 +473,20 @@ public class AIXM51_Features_MappingRule  extends AbstractMappingRule implements
 	    }
 	    else
 	        element.setAttribute("substitutionGroup","aixm" + ":" + "AbstractAIXMFeature");
-	    
-	    if(_includeDocumentation)
-	        element.appendChild(createXSDAnnotation(feature.GetNotes()));
-	    
+
+        //include annotation
+        if(_includeDocumentation || _includeDeprecation ){
+            element.appendChild(createAnnotation(feature, _includeDeprecation, feature.GetNotes()));
+        }
+
 	    return element;
 	}
 
-	
-	/**
+    private <T> Node createDeprecatedAnnotation(T obj) {
+        return null;  //To change body of created methods use File | Settings | File Templates.
+    }
+
+    /**
 	 * 
 	 * @param feature
 	 * @return
@@ -587,7 +594,7 @@ public class AIXM51_Features_MappingRule  extends AbstractMappingRule implements
 	
 	
 	/**
-	 * 
+	 *
 	 * @param feature
 	 * @return
 	 */
@@ -596,14 +603,14 @@ public class AIXM51_Features_MappingRule  extends AbstractMappingRule implements
 	    String name = feature.GetName();
 	    org.w3c.dom.Element complexType = _xmldoc.createElement(XSD_TAG_COMPLEX_TYPE);
 	    complexType.setAttribute("name", name + "TimeSliceType");
-	    
+
 	    org.w3c.dom.Element complexContent = _xmldoc.createElement(XSD_TAG_COMPLEX_CONTENT);
-	    
+
 	    org.w3c.dom.Element extension = _xmldoc.createElement(XSD_TAG_EXTENSION);
 	    extension.setAttribute("base", "aixm" + ":" + "AbstractAIXMTimeSliceType");
-	    
+
 	    org.w3c.dom.Element sequence = _xmldoc.createElement(XSD_TAG_SEQUENCE);
-	    
+
 	    org.w3c.dom.Element group = _xmldoc.createElement(XSD_TAG_GROUP);
 	    group.setAttribute("ref", getNamespacePrefixForElement(feature) + ":" + name + "PropertyGroup");
 
@@ -611,16 +618,16 @@ public class AIXM51_Features_MappingRule  extends AbstractMappingRule implements
 	    element.setAttribute("name","extension");
 	    element.setAttribute("minOccurs","0");
 	    element.setAttribute("maxOccurs","unbounded");
-	    
+
 	    org.w3c.dom.Element complexType2 = _xmldoc.createElement(XSD_TAG_COMPLEX_TYPE);
-	    
+
 	    Element UMLParent = getUMLParent(feature);
-	    
+
 	    if(UMLParent == null)
 	    {
 	        org.w3c.dom.Element sequence2 = _xmldoc.createElement(XSD_TAG_SEQUENCE);
 	        org.w3c.dom.Element element2 = _xmldoc.createElement(XSD_TAG_ELEMENT);
-	        element2.setAttribute("ref",getNamespacePrefixForElement(feature) + ":" + "Abstract" + name + "Extension");	    
+	        element2.setAttribute("ref",getNamespacePrefixForElement(feature) + ":" + "Abstract" + name + "Extension");
 	        sequence2.appendChild(element2);
 	        complexType2.appendChild(sequence2);
 
@@ -628,33 +635,34 @@ public class AIXM51_Features_MappingRule  extends AbstractMappingRule implements
 	    else
 	    {
 	        org.w3c.dom.Element choice = _xmldoc.createElement(XSD_TAG_CHOICE);
-	        
-	        org.w3c.dom.Element element2 = _xmldoc.createElement(XSD_TAG_ELEMENT);
-	        element2.setAttribute("ref",getNamespacePrefixForElement(feature) + ":" + "Abstract" + name + "Extension");
-	        
-	        org.w3c.dom.Element element3 = _xmldoc.createElement(XSD_TAG_ELEMENT);
-	        element3.setAttribute("ref",getNamespacePrefixForElement(UMLParent) + ":" + "Abstract" + UMLParent.GetName() + "Extension");
-	        
-	        choice.appendChild(element2);
-	        choice.appendChild(element3);
+
+
+            Element choiceElement = feature;
+
+            while(choiceElement != null) {
+                org.w3c.dom.Element element2 = _xmldoc.createElement(XSD_TAG_ELEMENT);
+                element2.setAttribute("ref", getNamespacePrefixForElement(choiceElement) + ":" + "Abstract" + choiceElement.GetName() + "Extension");
+                choice.appendChild(element2);
+                choiceElement = getUMLParent(choiceElement);
+            }
 	        complexType2.appendChild(choice);
 	    }
-	    
+
         org.w3c.dom.Element attributeGroup = _xmldoc.createElement(XSD_TAG_ATTRIBUTE_GROUP);
         attributeGroup.setAttribute("ref","gml:OwnershipAttributeGroup");
         complexType2.appendChild(attributeGroup);
-	        
+
 	    element.appendChild(complexType2);
-	    
+
 	    sequence.appendChild(group);
 	    sequence.appendChild(element);
-	    
+
 	    extension.appendChild(sequence);
-	    
+
 	    complexContent.appendChild(extension);
-	    
+
 	    complexType.appendChild(complexContent);
-	    
+
 	    return complexType;
 	}
 	
@@ -695,7 +703,7 @@ public class AIXM51_Features_MappingRule  extends AbstractMappingRule implements
 	    
 	    org.w3c.dom.Element group = _xmldoc.createElement(XSD_TAG_GROUP);
 	    group.setAttribute("name", name + "PropertyGroup");
-	    
+
 	    org.w3c.dom.Element sequence = _xmldoc.createElement(XSD_TAG_SEQUENCE);
 
 	    // include reference to the parent property group of the parent, if any
@@ -709,8 +717,8 @@ public class AIXM51_Features_MappingRule  extends AbstractMappingRule implements
 
         //AIXMSCR-13: add inherited properties and associations if autoInheritance enabled
         Vector<org.w3c.dom.Node> autoInheritanceElements = null;
-        if (feature.GetStereotype().equals(AIXM_51_STEREOTYPE_OBJECT)) autoInheritanceElements = elementsForAllObjects;
-        if (feature.GetStereotype().equals(AIXM_51_STEREOTYPE_FEATURE)) autoInheritanceElements = elementsForAllTimeslices;
+        if (feature.GetStereotypeEx().contains(AIXM_51_STEREOTYPE_OBJECT)) autoInheritanceElements = elementsForAllObjects;
+        if (feature.GetStereotypeEx().contains(AIXM_51_STEREOTYPE_FEATURE)) autoInheritanceElements = elementsForAllTimeslices;
         if (autoInheritance && autoInheritanceElements!=null && autoInheritanceElements.size()!=0)for (int e=0;e<autoInheritanceElements.size();e++)
         {
             Node autoInheritanceElement = autoInheritanceElements.get(e);
@@ -729,10 +737,14 @@ public class AIXM51_Features_MappingRule  extends AbstractMappingRule implements
 	        element.setAttribute("name",umlAttribute.GetName());
 	        element.setAttribute("nillable","true");
 	        element.setAttribute("minOccurs","0");
-	        
-	        if(_includeDocumentation)
-	            element.appendChild(createXSDAnnotation(umlAttribute.GetNotes()));
-	        
+
+            boolean  _includeDeprecation = umlAttribute.GetStereotype().equals(AIXM_51_STEREOTYPE_DEPRECATED);
+
+            //include annotation
+            if(_includeDocumentation || _includeDeprecation ){
+                element.appendChild(createAnnotation(umlAttribute, _includeDeprecation, umlAttribute.GetNotes()));
+            }
+
 	        //Add type
             Element umlDatatype = null;
             try {
@@ -791,7 +803,8 @@ public class AIXM51_Features_MappingRule  extends AbstractMappingRule implements
         	        // minOccurs is always set to 0 because everything has to be optional
         	        element.setAttribute("minOccurs","0");
         	        String upperCardinality = null;
-        	        try
+
+                    try
         	        {
         	            upperCardinality = getUpperMultiplictyInXML(connector, associatedElement);
         	        }
@@ -802,19 +815,35 @@ public class AIXM51_Features_MappingRule  extends AbstractMappingRule implements
         	            upperCardinality = "1";
         	        }
         	        element.setAttribute("maxOccurs",upperCardinality);
-        	        
-        	        ////////////////////////////////////
-	                
+
+                    ////////////////////////////////////
+
+                    boolean _includeDeprecation = connector.GetStereotype().equals(AIXM_51_STEREOTYPE_DEPRECATED);
+
+                    //include annotation
         	        if(_includeDocumentation)
                     {
+                        org.w3c.dom.Node xsdAnnotation = null;
                         // OVA2015 AIXMSCR-5
                         //a few connectors also have notes
+
                         String connectorNotes = connector.GetNotes();
-                        if (connectorNotes!=null && connectorNotes.length()!=0)  element.appendChild(createXSDAnnotation(connectorNotes));
-                        else if (roleNotes!=null && roleNotes.length()!=0)  element.appendChild(createXSDAnnotation(roleNotes));
+                        if (connectorNotes!=null && connectorNotes.length()!=0)  xsdAnnotation = element.appendChild(createAnnotation(connector, _includeDeprecation, connectorNotes));
+                        else if (roleNotes!=null && roleNotes.length()!=0)  xsdAnnotation = element.appendChild(createAnnotation(connector, _includeDeprecation, roleNotes));
+
+                        if (upperCardinality != "unbounded"){
+                            if(Integer.parseInt(upperCardinality) > 1) {
+                                if(xsdAnnotation == null){
+                                    xsdAnnotation = _xmldoc.createElement(XSD_TAG_ANNOTATION);
+                                }
+                                org.w3c.dom.Element xsdDocumentation = _xmldoc.createElement(XSD_TAG_DOCUMENTATION);
+                                xsdDocumentation.setTextContent("WARNING: possible wrong multiplicity - see documentation");
+                                xsdAnnotation.appendChild(xsdDocumentation);
+                                element.appendChild(xsdAnnotation);
+                            }
+
+                        }
                     }
-
-
 
 
                     String associationClassGUID = (String)_hashMapForAssociationClasses.get(connector.GetConnectorGUID());
@@ -844,9 +873,10 @@ public class AIXM51_Features_MappingRule  extends AbstractMappingRule implements
 	        	        sequence.appendChild(element);
 	                }
 	                // case 4: no association class - the target class is a choice
+
 	                else if (associatedElement.GetStereotype().equals("choice"))
 	                {
-	                    sequence.appendChild(createChoice(associatedElement,connector,roleName,roleNotes));
+	                    sequence.appendChild(createChoice(associatedElement,connector,roleName,roleNotes, upperCardinality));
                     
 	                }        	        
 	            }	            	            
@@ -917,11 +947,12 @@ public class AIXM51_Features_MappingRule  extends AbstractMappingRule implements
         // This property is added only if the processed element 
         // - has no parent
         // - has a parent class belonging to the [ISO 19107] package
+        // - is not part of the Notes package
         // In all other cases, the annotation property is inherited from the parent class.       
         //////////////////////////////
 //        Element UMLParent = getUMLParent(feature);
          //AIXMSCR-13 ignore notes if autoInheritance enabled
-        if (!autoInheritance && (UMLParent == null || SparxUtilities.belongsToPackage(UMLParent,AIXM_51_GUID_PACKAGE_ISO_19107_GEOMETRY)))
+        if (!autoInheritance && !SparxUtilities.belongsToPackage(feature,AIXM_51_GUID_PACKAGE_NOTES) && (UMLParent == null || SparxUtilities.belongsToPackage(UMLParent,AIXM_51_GUID_PACKAGE_ISO_19107_GEOMETRY)))
         {
             org.w3c.dom.Element annotation = _xmldoc.createElement(XSD_TAG_ELEMENT);
 	        annotation.setAttribute("name","annotation");
@@ -1082,16 +1113,16 @@ public class AIXM51_Features_MappingRule  extends AbstractMappingRule implements
          * @param roleNotes
          * @return
          */
-	protected org.w3c.dom.Element createChoice(Element associatedElement, Connector connector, String roleName, String roleNotes)
+	protected org.w3c.dom.Element createChoice(Element associatedElement, Connector connector, String roleName, String roleNotes, String upperCardinality)
 	{
         // chapter 4.8 Mapping Choices
         org.w3c.dom.Element choice = _xmldoc.createElement(XSD_TAG_CHOICE);
-        
-        if(_includeDocumentation)
+
+       // boolean _includeDeprecation =  connector.GetSupplierEnd().GetStereotypeEx().contains(AIXM_51_STEREOTYPE_DEPRECATED);
+
+        if(_includeDocumentation){
             choice.appendChild(createXSDAnnotation(roleNotes));
-        
-        
-        
+        }
         for(Iterator choiceConnectorIter = associatedElement.GetConnectors().iterator();choiceConnectorIter.hasNext();)
         {	                        
             Connector choiceConnector = (Connector)choiceConnectorIter.next();
@@ -1118,7 +1149,7 @@ public class AIXM51_Features_MappingRule  extends AbstractMappingRule implements
 	                // A choice can point to another choice. For instance <<choice>>[FlightRoutingElementChoice] ---> <<choice>>[SignificantPoint] 
 	                if(choiceElement.GetStereotypeEx().equals("choice"))
 	                {
-	                    choice.appendChild(createChoice(choiceElement,choiceConnector, roleName + "_" + roleChoiceElement,roleNotesChoiceElement));
+	                    choice.appendChild(createChoice(choiceElement,choiceConnector, roleChoiceElement,roleNotesChoiceElement, upperCardinality));
 	                }
 	                else
 	                {
@@ -1140,10 +1171,18 @@ public class AIXM51_Features_MappingRule  extends AbstractMappingRule implements
                                 EAEventManager.getInstance().fireEAEvent(this,MESSAGE_WARNING + ": Could not retrieve the upper multiplicity from choice association [" + roleChoiceElement + ">"+choiceElement.GetName()+"]. Using 'unbounded' by default.");
                             }
                             if (upperMultiplicity!=null)
-                                XSDelementForChoice.setAttribute("maxOccurs",upperMultiplicity);
+                                XSDelementForChoice.setAttribute("maxOccurs",upperCardinality);
                             else
                                 XSDelementForChoice.setAttribute("maxOccurs","unbounded");
                         }
+
+                        boolean _includeDeprecation =  choiceConnector.GetStereotypeEx().contains(AIXM_51_STEREOTYPE_DEPRECATED);
+
+                        if(_includeDocumentation || _includeDeprecation){
+
+                            XSDelementForChoice.appendChild(createAnnotation(choiceConnector, _includeDeprecation, choiceConnector.GetNotes()));
+                        }
+
 
 	                    choice.appendChild(XSDelementForChoice);
 	                }
@@ -1207,10 +1246,14 @@ public class AIXM51_Features_MappingRule  extends AbstractMappingRule implements
 		    }
 	        element.setAttribute("substitutionGroup",getNamespacePrefixForElement(UMLParent) + ":" + parentName);
 	    }
-	    
-	    if(_includeDocumentation)
-	        element.appendChild(createXSDAnnotation(object.GetNotes()));
-	    
+
+        boolean _includeDeprecation =  object.GetStereotypeEx().contains(AIXM_51_STEREOTYPE_DEPRECATED);
+
+        //include annotation
+        if(_includeDocumentation || _includeDeprecation ){
+            element.appendChild(createAnnotation(object, _includeDeprecation, object.GetNotes()));
+        }
+
 	    return element;
 	}
 	
@@ -1254,61 +1297,60 @@ public class AIXM51_Features_MappingRule  extends AbstractMappingRule implements
 	    }
 	    
 	    org.w3c.dom.Element sequence = _xmldoc.createElement(XSD_TAG_SEQUENCE);
-	    
-	    	   
+
+
 	    if(UMLParent != null)
-	    {	 
+	    {
 	        String parentName = UMLParent.GetName();
 	        /////////////////
 	        if(!inheritsFromISO19107(object))//!EAUtil.belongsToPackage(UMLParent, AIXM_51_GUID_PACKAGE_ISO_19107_GEOMETRY))
 	        {
-	           
 			    org.w3c.dom.Element groupA = _xmldoc.createElement(XSD_TAG_GROUP);
 			    groupA.setAttribute("ref",getNamespacePrefixForElement(UMLParent) + ":" + parentName + "PropertyGroup");
 			    sequence.appendChild(groupA);
 	        }
 	    }
 	        /////////////////
-		    
+
 	    if(!object.GetAbstract().equals("1"))
 	    {
-		    org.w3c.dom.Element group = _xmldoc.createElement(XSD_TAG_GROUP);
+            org.w3c.dom.Element group = _xmldoc.createElement(XSD_TAG_GROUP);
 		    group.setAttribute("ref",getNamespacePrefixForElement(object) + ":" + name + "PropertyGroup");
 		    sequence.appendChild(group);
-		    
-		    if(!inheritsFromISO19107(object))//!EAUtil.belongsToPackage(UMLParent, AIXM_51_GUID_PACKAGE_ISO_19107_GEOMETRY))
-		    {
-			    org.w3c.dom.Element element = _xmldoc.createElement(XSD_TAG_ELEMENT);
-			    element.setAttribute("name","extension");
-			    element.setAttribute("minOccurs","0");
-			    element.setAttribute("maxOccurs","unbounded");
-			    
-			    org.w3c.dom.Element complexType2 = _xmldoc.createElement(XSD_TAG_COMPLEX_TYPE);	        
-		        
-		        org.w3c.dom.Element choice = _xmldoc.createElement(XSD_TAG_CHOICE);
-		        complexType2.appendChild(choice);		        
-			    
-			    if(UMLParent != null)
-			    {	
-			        String parentName = UMLParent.GetName();
-				    org.w3c.dom.Element elementA = _xmldoc.createElement(XSD_TAG_ELEMENT);
-				    elementA.setAttribute("ref",getNamespacePrefixForElement(UMLParent) + ":" + "Abstract" + parentName + "Extension");
-				    choice.appendChild(elementA);
-			    }
-			    org.w3c.dom.Element elementB = _xmldoc.createElement(XSD_TAG_ELEMENT);
-			    elementB.setAttribute("ref",getNamespacePrefixForElement(object) + ":" + "Abstract" + name + "Extension");
-			    choice.appendChild(elementB);
-		    
-			    org.w3c.dom.Element attributeGroup = _xmldoc.createElement(XSD_TAG_ATTRIBUTE_GROUP);
-			    attributeGroup.setAttribute("ref","gml:OwnershipAttributeGroup");
-			    complexType2.appendChild(attributeGroup);
-			    
-			    
-			    element.appendChild(complexType2);	    
-		
-			    sequence.appendChild(element);	    
-		    }
-	    }
+
+            org.w3c.dom.Element element = _xmldoc.createElement(XSD_TAG_ELEMENT);
+            String extensionName = (UMLParent != null? UMLParent.GetName() : name) + "Extension";
+            element.setAttribute("name", extensionName);
+            element.setAttribute("minOccurs","0");
+            element.setAttribute("maxOccurs","unbounded");
+
+            org.w3c.dom.Element complexType2 = _xmldoc.createElement(XSD_TAG_COMPLEX_TYPE);
+
+            org.w3c.dom.Element choice = _xmldoc.createElement(XSD_TAG_CHOICE);
+            complexType2.appendChild(choice);
+
+            if(UMLParent != null && !inheritsFromISO19107(object))
+            {
+                String parentName = UMLParent.GetName();
+                org.w3c.dom.Element elementA = _xmldoc.createElement(XSD_TAG_ELEMENT);
+                elementA.setAttribute("ref",getNamespacePrefixForElement(UMLParent) + ":" + "Abstract" + parentName + "Extension");
+                choice.appendChild(elementA);
+            }
+
+            org.w3c.dom.Element elementB = _xmldoc.createElement(XSD_TAG_ELEMENT);
+            elementB.setAttribute("ref",getNamespacePrefixForElement(object) + ":" + "Abstract" + name + "Extension");
+            choice.appendChild(elementB);
+
+            org.w3c.dom.Element attributeGroup = _xmldoc.createElement(XSD_TAG_ATTRIBUTE_GROUP);
+            attributeGroup.setAttribute("ref", "gml:OwnershipAttributeGroup");
+            complexType2.appendChild(attributeGroup);
+
+
+            element.appendChild(complexType2);
+
+            sequence.appendChild(element);
+        }
+
 	    extension.appendChild(sequence);
 	    
 	    complexContent.appendChild(extension);

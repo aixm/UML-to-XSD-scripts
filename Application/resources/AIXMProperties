@@ -40,6 +40,7 @@ aixm_51_guid_package_aixm_abstract_features = {8F2DFE36-5437-44a8-9891-93D0578BB
 aixm_51_guid_class_xsd_schema_string = {C5A96D3A-4A10-4236-B1F1-E0D935F6D89D}
 aixm_51_guid_class_aixmtimeslice = {4C40780C-8471-4641-885D-FEA3AE3DADD5}
 aixm_51_guid_class_aixmobject = {70884A63-14D1-4bb1-A1CF-2AFB8C252955}
+aixm_51_guid_class_notes = {E56B70D0-B7AF-4209-8707-E19AE0B9BFC6}
 
 
 aixm_51_stereotype_codelist = CodeList
@@ -51,12 +52,17 @@ aixm_51_stereotype_message = message
 aixm_51_stereotype_choice = choice
 aixm_51_stereotype_collection_member_choice = collectionMemberChoice
 aixm_51_stereotype_extension = extension
+aixm_51_stereotype_deprecated = deprecated
 
 
 aixm_tagged_value_core_version = AIXM::coreVersion
 aixm_tagged_value_generate_file_name = AIXM::generateFileName
 aixm_tagged_value_extension_version = AIXM::extensionVersion
 aixm_tagged_value_extension_file_location = AIXM::fileLocation
+aixm_tagged_value_replacement = replacement
+aixm_tagged_value_rationale = rationale
+aixm_tagged_value_deletion_version = deletionVersion
+aixm_tagged_value_deprecation_version = deprecationVersion
 
 aixm_51_default_generate_file_name_datatypes = AIXM_DataTypes.xsd
 aixm_51_default_generate_file_name_features = AIXM_Features.xsd
