@@ -36,20 +36,14 @@ POSSIBILITY OF SUCH DAMAGE.
 
 package eurocontrol.swim.model.rules.aixm.mapping;
 
-import java.io.IOException;
-import java.util.*;
-
-import org.sparx.Attribute;
-import org.sparx.Collection;
-import org.sparx.Connector;
-import org.sparx.Element;
-import org.sparx.Package;
-
 import eurocontrol.swim.model.gui.common.EAEventManager;
 import eurocontrol.swim.model.rules.common.AbstractMappingRule;
 import eurocontrol.swim.model.sparx.EAConnection;
 import eurocontrol.swim.model.util.SparxUtilities;
 import eurocontrol.swim.model.util.constants.AIXMConstants;
+import org.sparx.*;
+import org.sparx.Collection;
+import org.sparx.Package;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
@@ -57,6 +51,8 @@ import javax.xml.namespace.NamespaceContext;
 import javax.xml.xpath.XPath;
 import javax.xml.xpath.XPathConstants;
 import javax.xml.xpath.XPathFactory;
+import java.io.IOException;
+import java.util.*;
 
 /**
  * @author hlepori
@@ -374,7 +370,7 @@ public class AIXM51_Features_MappingRule  extends AbstractMappingRule implements
                     _root.appendChild(createObjectPropertyType(element));
                     _root.appendChild(createAbstractObjectExtension(element));
             }
-            else if (element.GetStereotype().equals(AIXM_51_STEREOTYPE_CHOICE))
+            else if (element.GetStereotypeEx().equals(AIXM_51_STEREOTYPE_CHOICE))
             {
                 // Do nothing - the choices are processed directly when creating the "property groups"  
             }
@@ -481,10 +477,6 @@ public class AIXM51_Features_MappingRule  extends AbstractMappingRule implements
 
 	    return element;
 	}
-
-    private <T> Node createDeprecatedAnnotation(T obj) {
-        return null;  //To change body of created methods use File | Settings | File Templates.
-    }
 
     /**
 	 * 
@@ -818,17 +810,17 @@ public class AIXM51_Features_MappingRule  extends AbstractMappingRule implements
 
                     ////////////////////////////////////
 
-                    boolean _includeDeprecation = connector.GetStereotype().equals(AIXM_51_STEREOTYPE_DEPRECATED);
+                    boolean _includeDeprecation = connector.GetStereotypeEx().contains(AIXM_51_STEREOTYPE_DEPRECATED);
 
                     //include annotation
-        	        if(_includeDocumentation)
+        	        if(_includeDocumentation || _includeDeprecation)
                     {
                         org.w3c.dom.Node xsdAnnotation = null;
                         // OVA2015 AIXMSCR-5
                         //a few connectors also have notes
 
                         String connectorNotes = connector.GetNotes();
-                        if (connectorNotes!=null && connectorNotes.length()!=0)  xsdAnnotation = element.appendChild(createAnnotation(connector, _includeDeprecation, connectorNotes));
+                        if (connectorNotes!=null && connectorNotes.length()!=0)xsdAnnotation = element.appendChild(createAnnotation(connector, _includeDeprecation, connectorNotes));
                         else if (roleNotes!=null && roleNotes.length()!=0)  xsdAnnotation = element.appendChild(createAnnotation(connector, _includeDeprecation, roleNotes));
 
                         if (upperCardinality != "unbounded"){
@@ -857,7 +849,7 @@ public class AIXM51_Features_MappingRule  extends AbstractMappingRule implements
 	        	        sequence.appendChild(element);
 	                }
 	                // case 2: no association class - the target class is a feature
-	                else if(associatedElement.GetStereotype().equals("feature"))
+	                else if(associatedElement.GetStereotypeEx().contains("feature"))
 	                {
 	                    // chapter 4.10 Mapping Relationships to Features
 	        	        element.setAttribute("name",roleName);
@@ -865,7 +857,7 @@ public class AIXM51_Features_MappingRule  extends AbstractMappingRule implements
 	        	        sequence.appendChild(element);
 	                }
 	                // case 3: no association class - the target class is an object
-	                else if (associatedElement.GetStereotype().equals("object"))
+	                else if (associatedElement.GetStereotypeEx().contains("object"))
 	                {
 	                    // chapter 4.9 Mapping Relationships to Objects
 	        	        element.setAttribute("name",roleName);
@@ -874,7 +866,7 @@ public class AIXM51_Features_MappingRule  extends AbstractMappingRule implements
 	                }
 	                // case 4: no association class - the target class is a choice
 
-	                else if (associatedElement.GetStereotype().equals("choice"))
+	                else if (associatedElement.GetStereotypeEx().contains("choice"))
 	                {
 	                    sequence.appendChild(createChoice(associatedElement,connector,roleName,roleNotes, upperCardinality));
                     
@@ -1120,11 +1112,20 @@ public class AIXM51_Features_MappingRule  extends AbstractMappingRule implements
 
        // boolean _includeDeprecation =  connector.GetSupplierEnd().GetStereotypeEx().contains(AIXM_51_STEREOTYPE_DEPRECATED);
 
-        if(_includeDocumentation){
-            choice.appendChild(createXSDAnnotation(roleNotes));
+
+
+        boolean _includeDeprecation =  associatedElement.GetStereotypeEx().contains(AIXM_51_STEREOTYPE_DEPRECATED);
+        boolean _includeConnectorsDeprecation =  connector.GetStereotypeEx().contains(AIXM_51_STEREOTYPE_DEPRECATED);
+
+        if(_includeDocumentation || _includeDeprecation ){
+
+            choice.appendChild(createAnnotation(associatedElement, _includeDeprecation, associatedElement.GetNotes()));
+            //choice.appendChild(createAnnotation(connector, _includeConnectorsDeprecation, roleNotes));
         }
+
         for(Iterator choiceConnectorIter = associatedElement.GetConnectors().iterator();choiceConnectorIter.hasNext();)
-        {	                        
+        {
+
             Connector choiceConnector = (Connector)choiceConnectorIter.next();
             if (choiceConnector.GetConnectorID() != connector.GetConnectorID())
             {
@@ -1147,7 +1148,7 @@ public class AIXM51_Features_MappingRule  extends AbstractMappingRule implements
 	                Element choiceElement = EAConnection.getInstance().getRepository().GetElementByID(idChoiceElement);
             		
 	                // A choice can point to another choice. For instance <<choice>>[FlightRoutingElementChoice] ---> <<choice>>[SignificantPoint] 
-	                if(choiceElement.GetStereotypeEx().equals("choice"))
+	                if(choiceElement.GetStereotypeEx().contains("choice"))
 	                {
 	                    choice.appendChild(createChoice(choiceElement,choiceConnector, roleChoiceElement,roleNotesChoiceElement, upperCardinality));
 	                }
@@ -1176,11 +1177,14 @@ public class AIXM51_Features_MappingRule  extends AbstractMappingRule implements
                                 XSDelementForChoice.setAttribute("maxOccurs","unbounded");
                         }
 
-                        boolean _includeDeprecation =  choiceConnector.GetStereotypeEx().contains(AIXM_51_STEREOTYPE_DEPRECATED);
+                        _includeDeprecation =  choiceConnector.GetStereotypeEx().contains(AIXM_51_STEREOTYPE_DEPRECATED);
 
-                        if(_includeDocumentation || _includeDeprecation){
+                        if(_includeDocumentation || _includeDeprecation || _includeConnectorsDeprecation ){
 
-                            XSDelementForChoice.appendChild(createAnnotation(choiceConnector, _includeDeprecation, choiceConnector.GetNotes()));
+                            if(_includeDeprecation)
+                                XSDelementForChoice.appendChild(createAnnotation(choiceConnector, _includeDeprecation, choiceConnector.GetNotes()));
+                            else
+                            XSDelementForChoice.appendChild(createAnnotation(connector, _includeConnectorsDeprecation, connector.GetNotes()));
                         }
 
 
