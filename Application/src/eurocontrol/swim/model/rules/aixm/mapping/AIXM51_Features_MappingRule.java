@@ -1323,8 +1323,12 @@ public class AIXM51_Features_MappingRule  extends AbstractMappingRule implements
 		    sequence.appendChild(group);
 
             org.w3c.dom.Element element = _xmldoc.createElement(XSD_TAG_ELEMENT);
+			/*
+			KEEP XML 5.1.1 INVALID AND MANUALLY CORRECTED - 5.2 will be correct (email Eddy 20181218)
             String extensionName = (UMLParent != null? UMLParent.GetName() : name) + "Extension";
             element.setAttribute("name", extensionName);
+			*/
+			element.setAttribute("name","extension");
             element.setAttribute("minOccurs","0");
             element.setAttribute("maxOccurs","unbounded");
 

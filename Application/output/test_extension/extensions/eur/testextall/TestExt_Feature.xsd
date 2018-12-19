@@ -88,7 +88,7 @@
             <extension base="aixm:AbstractAIXMObjectType">
                 <sequence>
                     <group ref="testext:TestAssociationClassToFeaturePropertyGroup"/>
-                    <element maxOccurs="unbounded" minOccurs="0" name="TestAssociationClassToFeatureExtension">
+                    <element maxOccurs="unbounded" minOccurs="0" name="extension">
                         <complexType>
                             <choice>
                                 <element ref="testext:AbstractTestAssociationClassToFeatureExtension"/>
@@ -130,7 +130,7 @@
             <extension base="aixm:AbstractAIXMObjectType">
                 <sequence>
                     <group ref="testext:TestAssociationClassToObjectPropertyGroup"/>
-                    <element maxOccurs="unbounded" minOccurs="0" name="TestAssociationClassToObjectExtension">
+                    <element maxOccurs="unbounded" minOccurs="0" name="extension">
                         <complexType>
                             <choice>
                                 <element ref="testext:AbstractTestAssociationClassToObjectExtension"/>
@@ -174,7 +174,7 @@
             <extension base="aixm:CurveType">
                 <sequence>
                     <group ref="testext:TestChoice1PropertyGroup"/>
-                    <element maxOccurs="unbounded" minOccurs="0" name="CurveExtension">
+                    <element maxOccurs="unbounded" minOccurs="0" name="extension">
                         <complexType>
                             <choice>
                                 <element ref="testext:AbstractTestChoice1Extension"/>
@@ -214,7 +214,7 @@
             <extension base="aixm:SurfaceType">
                 <sequence>
                     <group ref="testext:TestChoice2PropertyGroup"/>
-                    <element maxOccurs="unbounded" minOccurs="0" name="SurfaceExtension">
+                    <element maxOccurs="unbounded" minOccurs="0" name="extension">
                         <complexType>
                             <choice>
                                 <element ref="testext:AbstractTestChoice2Extension"/>
@@ -263,7 +263,7 @@
             <extension base="aixm:PointType">
                 <sequence>
                     <group ref="testext:TestChoice3PropertyGroup"/>
-                    <element maxOccurs="unbounded" minOccurs="0" name="PointExtension">
+                    <element maxOccurs="unbounded" minOccurs="0" name="extension">
                         <complexType>
                             <choice>
                                 <element ref="testext:AbstractTestChoice3Extension"/>
@@ -303,7 +303,7 @@
             <extension base="aixm:AbstractAIXMObjectType">
                 <sequence>
                     <group ref="testext:TestObjectPropertyGroup"/>
-                    <element maxOccurs="unbounded" minOccurs="0" name="TestObjectExtension">
+                    <element maxOccurs="unbounded" minOccurs="0" name="extension">
                         <complexType>
                             <choice>
                                 <element ref="testext:AbstractTestObjectExtension"/>
@@ -339,11 +339,31 @@
                 </element>
                 <element maxOccurs="unbounded" minOccurs="0"
                     name="_hasChoice3" nillable="true" type="testext:TestChoice3PropertyType">
-                    <!--No annotation found for this element.-->
+                    <annotation>
+                        <appinfo>deprecated</appinfo>
+                        <documentation>
+                            <deprecated>
+                                <rationale>AIXM-312 - this element is deprecated because… </rationale>
+                                <replacement>n/a</replacement>
+                                <deprecationVersion>5.2</deprecationVersion>
+                                <deletionVersion>5.3*</deletionVersion>
+                            </deprecated>
+                        </documentation>
+                    </annotation>
                 </element>
                 <element maxOccurs="unbounded" minOccurs="0"
                     name="_hasChoice1" nillable="true" type="testext:TestChoice1PropertyType">
-                    <!--No annotation found for this element.-->
+                    <annotation>
+                        <appinfo>deprecated</appinfo>
+                        <documentation>
+                            <deprecated>
+                                <rationale>AIXM-312 - this element is deprecated because… </rationale>
+                                <replacement>n/a</replacement>
+                                <deprecationVersion>5.2</deprecationVersion>
+                                <deletionVersion>5.3*</deletionVersion>
+                            </deprecated>
+                        </documentation>
+                    </annotation>
                 </element>
             </choice>
             <element maxOccurs="unbounded" minOccurs="0"
