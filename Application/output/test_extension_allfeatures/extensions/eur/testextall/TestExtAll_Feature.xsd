@@ -5163,9 +5163,7 @@
     <element name="testAssociationForAllFeatures"
         substitutionGroup="aixm:AbstractAIXMFeature" type="testextall:testAssociationForAllFeaturesType">
         <annotation>
-            <appinfo>
-                <gml:description>Test annotation for Feature</gml:description>
-            </appinfo>
+            <documentation>Test annotation for Feature</documentation>
         </annotation>
     </element>
     <complexType name="testAssociationForAllFeaturesType">
@@ -5221,9 +5219,7 @@
     <element name="testAssociationForAllObjects"
         substitutionGroup="aixm:AbstractAIXMFeature" type="testextall:testAssociationForAllObjectsType">
         <annotation>
-            <appinfo>
-                <gml:description>Test annotation for Feature</gml:description>
-            </appinfo>
+            <documentation>Test annotation for Feature</documentation>
         </annotation>
     </element>
     <complexType name="testAssociationForAllObjectsType">

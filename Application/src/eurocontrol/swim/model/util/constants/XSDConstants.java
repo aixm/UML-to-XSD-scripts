@@ -62,9 +62,14 @@ public interface XSDConstants {
     public static final String XSD_TAG_APPINFO = "appinfo";   //OVA2015 AIXMSCR-5
     public static final String XSD_TAG_GMLDESCRIPTION = "gml:description";   //OVA2015 AIXMSCR-5
     public static final String XSD_TAG_DOCUMENTATION = "documentation";
+    public static final String XSD_TAG_DEPRECATED = "deprecated";
 	public static final String XSD_TAG_UNION = "union";
 	public static final String XSD_TAG_PATTERN = "pattern";
 	public static final String XSD_TAG_ANY = "any";
+    public static final String XSD_TAG_RATIONALE = "rationale";
+    public static final String XSD_TAG_REPLACEMENT = "replacement";
+    public static final String XSD_TAG_DEPRECATION_VERSION = "deprecationVersion";
+    public static final String XSD_TAG_DELETION_VERSION = "deletionVersion";
 	
 	public static final String XSD_XML_NAMESPACE = "xmlns";
 	

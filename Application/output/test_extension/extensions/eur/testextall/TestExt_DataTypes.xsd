@@ -11,9 +11,7 @@
     <import namespace="http://www.aixm.aero/schema/5.1.1" schemaLocation="../../../AIXM_DataTypes.xsd"/>
     <simpleType name="TestCodelist">
         <annotation>
-            <appinfo>
-                <gml:description>Test annotation for CodeList</gml:description>
-            </appinfo>
+            <documentation>Test annotation for CodeList</documentation>
         </annotation>
         <union>
             <simpleType>
@@ -38,9 +36,7 @@
     </simpleType>
     <simpleType name="TestDataType">
         <annotation>
-            <appinfo>
-                <gml:description>Test annotation for DataType</gml:description>
-            </appinfo>
+            <documentation>Test annotation for DataType</documentation>
         </annotation>
         <restriction base="testext:TestCodelist"/>
     </simpleType>
