@@ -332,6 +332,7 @@ public class AIXM51_Datatypes_MappingRule extends AbstractMappingRule
                         if(_includeDocumentation || _includeDeprecation ){
                             myEnum.appendChild(createAnnotation(attribute, _includeDeprecation, attribute.GetNotes()));
                         }
+                        restriction2.appendChild(myEnum);
 
                     }
                 }
