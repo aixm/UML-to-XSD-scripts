@@ -331,6 +331,8 @@ public class AIXM51_Extension_Features_MappingRule extends
 	{	    
 	    String name = umlExtension.GetName() + "Extension";	  
 	    org.w3c.dom.Element element = _xmldoc.createElement(XSD_TAG_ELEMENT);
+
+        boolean _includeDeprecation = umlExtension.GetStereotypeEx().contains(AIXM_51_STEREOTYPE_DEPRECATED);
 	    
 	    if(umlExtension.GetAbstract().equalsIgnoreCase("1"))
 	    {
@@ -341,8 +343,8 @@ public class AIXM51_Extension_Features_MappingRule extends
 	    element.setAttribute("type", getNamespacePrefixForElement(umlExtension) + ":" + name + "Type");	    	    
 	    if (!skipSubstitutionGroup) element.setAttribute("substitutionGroup","aixm" + ":" + "Abstract"+ name);
 	    
-	    if(_includeDocumentation && !autoInheritance)
-	        element.appendChild(createXSDAnnotation(umlExtension.GetNotes()));
+	    if(_includeDocumentation && !autoInheritance || _includeDeprecation)
+	        element.appendChild(createAnnotation(umlExtension, _includeDeprecation, umlExtension.GetNotes()));
 	    
 	    return element;
 	}
@@ -411,10 +413,11 @@ public class AIXM51_Extension_Features_MappingRule extends
 
 	    element.setAttribute("name",name);
 	    element.setAttribute("type", getNamespacePrefixForElement(message) + ":" + name + "Type");	    	    
-	    element.setAttribute("substitutionGroup","gml" + ":" + "AbstractFeature");	    
-	    
-	    if(_includeDocumentation)
-	        element.appendChild(createXSDAnnotation(message.GetNotes()));
+	    element.setAttribute("substitutionGroup","gml" + ":" + "AbstractFeature");
+
+        boolean _includeDeprecation = message.GetStereotypeEx().contains(AIXM_51_STEREOTYPE_DEPRECATED);
+	    if(_includeDocumentation || _includeDeprecation)
+	        element.appendChild(createAnnotation(message, _includeDeprecation, message.GetNotes()));
 	    
 	    return element;
 	}
@@ -485,7 +488,12 @@ public class AIXM51_Extension_Features_MappingRule extends
             // OVA2015 AIXMSCR-5
             //a few connectors also have notes
             String connectorNotes = connector.GetNotes();
-            if (connectorNotes!=null && connectorNotes.length()!=0)  element.appendChild(createXSDAnnotation(connectorNotes));
+            boolean _includeDeprecation = connector.GetStereotypeEx().contains(AIXM_51_STEREOTYPE_DEPRECATED);
+            if (connectorNotes!=null && connectorNotes.length()!=0)  {
+                if(_includeDocumentation || _includeDeprecation) {
+                    element.appendChild(createAnnotation(connector, _includeDeprecation, connectorNotes));
+                }
+            }
 
 	        sequence.appendChild(element);
 	    }

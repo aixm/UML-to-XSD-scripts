@@ -48,7 +48,6 @@ public class ATM_Data_Models_Processing_Tool {
         Mainframe frame = new Mainframe();
         frame.pack();
         frame.setVisible(true);
-
         if (args.length==7 && args[0].equalsIgnoreCase("autorun"))
         {
             String eapPath = args[1];

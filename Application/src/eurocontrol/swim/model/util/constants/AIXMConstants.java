@@ -48,8 +48,9 @@ public interface AIXMConstants {
     public static final String AIXM_51_GUID_PACKAGE_AIXM_DATATYPES = AIXMProperties.getInstance().getProperty("aixm_51_guid_package_aixm_datatypes");//"{974F9493-39A7-432c-AD06-291F3870A033}";
     public static final String AIXM_51_GUID_PACKAGE_AIXM_FEATURES = AIXMProperties.getInstance().getProperty("aixm_51_guid_package_aixm_features");//"{67EACA15-9791-4c6b-9789-4BC1CCCCD07C}";
     public static final String AIXM_51_GUID_PACKAGE_ISO_19107_GEOMETRY = AIXMProperties.getInstance().getProperty("aixm_51_guid_package_iso_19107_geometry");//"{AB0D4C12-3099-4e60-B1C5-FFE1087CEE35}";
-    public static final String AIXM_51_GUID_PACKAGE_AIXM_ABSTRACT_FEATURES = AIXMProperties.getInstance().getProperty("aixm_51_guid_package_aixm_abstract_features");//"{B82D289B-634A-40a8-A778-60491509D0A8}";
-    
+    public static final String AIXM_51_GUID_PACKAGE_AIXM_ABSTRACT_FEATURES = AIXMProperties.getInstance().getProperty("aixm_51_guid_package_aixm_abstract_features");//"{B82D289B-634A-40a8-A778-60491509D0A8}"
+    public static final String AIXM_51_GUID_PACKAGE_NOTES = AIXMProperties.getInstance().getProperty("aixm_51_guid_class_notes"); //{E56B70D0-B7AF-4209-8707-E19AE0B9BFC6}
+
 	/////////////////////////////
 	// List of class GUID
 	/////////////////////////////
@@ -70,6 +71,7 @@ public interface AIXMConstants {
 	public static final String AIXM_51_STEREOTYPE_CHOICE = AIXMProperties.getInstance().getProperty("aixm_51_stereotype_choice");//"choice";
 	public static final String AIXM_51_STEREOTYPE_COLLECTION_MEMBER_CHOICE = AIXMProperties.getInstance().getProperty("aixm_51_stereotype_collection_member_choice");//"collectionMemberChoice";
 	public static final String AIXM_51_STEREOTYPE_EXTENSION = AIXMProperties.getInstance().getProperty("aixm_51_stereotype_extension");//"extension";
+    public static final String AIXM_51_STEREOTYPE_DEPRECATED = AIXMProperties.getInstance().getProperty("aixm_51_stereotype_deprecated");//"deprecated"
 	
 	/////////////////////////////
 	// List of Sparx EA Tagged Values
@@ -78,7 +80,10 @@ public interface AIXMConstants {
 	public static final String AIXM_TAGGED_VALUE_GENERATE_FILE_NAME = AIXMProperties.getInstance().getProperty("aixm_tagged_value_generate_file_name");//"AIXM::generateFileName";
 	public static final String AIXM_TAGGED_VALUE_EXTENSION_VERSION = AIXMProperties.getInstance().getProperty("aixm_tagged_value_extension_version");//"AIXM::extensionVersion";
     public static final String AIXM_TAGGED_VALUE_EXTENSION_FILE_LOCATION = AIXMProperties.getInstance().getProperty("aixm_tagged_value_extension_file_location");//"AIXM::fileLocation";
-
+    public static final String AIXM_TAGGED_VALUE_REPLACEMENT = AIXMProperties.getInstance().getProperty("aixm_tagged_value_replacement");
+    public static final String AIXM_TAGGED_VALUE_RATIONALE = AIXMProperties.getInstance().getProperty("aixm_tagged_value_rationale");
+    public static final String AIXM_TAGGED_VALUE_DEPRECATION_VERSION = AIXMProperties.getInstance().getProperty("aixm_tagged_value_deprecation_version");
+    public static final String AIXM_TAGGED_VALUE_DELETION_VERSION = AIXMProperties.getInstance().getProperty("aixm_tagged_value_deletion_version");
 	/////////////////////////////
 	// List of default values for the core AIXM 5.1
 	/////////////////////////////
