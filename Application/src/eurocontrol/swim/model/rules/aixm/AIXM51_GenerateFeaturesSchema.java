@@ -67,7 +67,7 @@ public class AIXM51_GenerateFeaturesSchema extends AbstractRule implements  XSDC
      * @see eurocontrol.swim.model.rules.Rule#getName()
      */
     public String getName() {
-        return "[AIXM 5.1] XML SCHEMAS GENERATION - Generate core XSD for Features.";
+        return "[AIXM] XML SCHEMAS GENERATION - Generate core XSD for Features.";
     }
     
     /* (non-Javadoc)

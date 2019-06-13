@@ -64,7 +64,7 @@ public class AIXM51_GenerateExtensionMessages extends AbstractRule implements XS
      * @see eurocontrol.swim.model.rules.Rule#getName()
      */
     public String getName() {
-        return "[AIXM 5.1 Extension] XML SCHEMAS GENERATION - Generate Extension Messages Schema.";
+        return "[AIXM Extension] XML SCHEMAS GENERATION - Generate Extension Messages Schema.";
     }
 
     /* (non-Javadoc)

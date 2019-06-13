@@ -74,7 +74,7 @@ public class AIXM51_GenerateApplicationSchema extends AbstractRule implements  X
      * @see eurocontrol.swim.model.rules.Rule#getName()
      */
     public String getName() {
-        return "[AIXM 5.1 Extension] XML SCHEMAS GENERATION - Generate Application Schema.";
+        return "[AIXM Extension] XML SCHEMAS GENERATION - Generate Application Schema.";
     }
 
     static private Package getPackageByName(String name)
