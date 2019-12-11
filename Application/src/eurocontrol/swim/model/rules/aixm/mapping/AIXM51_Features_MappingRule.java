@@ -847,7 +847,7 @@ public class AIXM51_Features_MappingRule  extends AbstractMappingRule implements
 	                    Element associationClass = EAConnection.getInstance().getRepository().GetElementByGuid(associationClassGUID);
 	                    // chapter 4.9.1 Mapping Associations with Association Classes
 	        	        element.setAttribute("name",roleName);
-                        element.setAttribute("type",getNamespacePrefixForElement(associationClass) + ":" +  associationClass.GetName() + "Type");
+                        element.setAttribute("type",getNamespacePrefixForElement(associationClass) + ":" +  associationClass.GetName() + "PropertyType");
 	        	        sequence.appendChild(element);
 	                }
 	                // case 2: no association class - the target class is a feature

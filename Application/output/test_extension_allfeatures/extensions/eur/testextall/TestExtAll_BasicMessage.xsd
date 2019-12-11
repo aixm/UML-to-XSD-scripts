@@ -2,7 +2,7 @@
 <schema attributeFormDefault="unqualified"
     elementFormDefault="qualified"
     targetNamespace="http://www.aixm.aero/schema/5.1.1/extensions/eur/testextall"
-    version="1.0" xmlns="http://www.w3.org/2001/XMLSchema"
+    version="5.1.1.a" xmlns="http://www.w3.org/2001/XMLSchema"
     xmlns:gml="http://www.opengis.net/gml/3.2"
     xmlns:testextall="http://www.aixm.aero/schema/5.1.1/extensions/eur/testextall"
     xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsd="http://www.w3.org/2001/XMLSchema">

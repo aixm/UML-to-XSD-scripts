@@ -150,7 +150,7 @@
                 </annotation>
             </element>
             <element maxOccurs="unbounded" minOccurs="0"
-                name="managingOrganisation" nillable="true" type="aixm:AuthorityForAerialRefuellingType">
+                name="managingOrganisation" nillable="true" type="aixm:AuthorityForAerialRefuellingPropertyType">
                 <annotation>
                     <documentation>The OrganisationAuthority that manages the AerialRefuelling.</documentation>
                 </annotation>
@@ -649,7 +649,7 @@
                 </annotation>
             </element>
             <element maxOccurs="1" minOccurs="0"
-                name="responsibleOrganisation" nillable="true" type="aixm:AirportHeliportResponsibilityOrganisationType"/>
+                name="responsibleOrganisation" nillable="true" type="aixm:AirportHeliportResponsibilityOrganisationPropertyType"/>
             <element maxOccurs="unbounded" minOccurs="0"
                 name="contaminant" nillable="true" type="aixm:AirportHeliportContaminationPropertyType">
                 <annotation>
@@ -4477,7 +4477,7 @@ Note: this includes the concept of Final Approach and Take-Off Area (FATO) for h
                 </annotation>
             </element>
             <element maxOccurs="unbounded" minOccurs="0"
-                name="navaidEquipment" nillable="true" type="aixm:NavaidEquipmentDistanceType">
+                name="navaidEquipment" nillable="true" type="aixm:NavaidEquipmentDistancePropertyType">
                 <annotation>
                     <documentation>A Navaid Equipment that is located near the runway and for which the relative position from a centreline point is defined.</documentation>
                 </annotation>
@@ -6400,7 +6400,7 @@ Note: this includes the concept of Final Approach and Take-Off Area (FATO) for h
                 </annotation>
             </element>
             <element maxOccurs="unbounded" minOccurs="0"
-                name="geometryComponent" nillable="true" type="aixm:AirspaceGeometryComponentType">
+                name="geometryComponent" nillable="true" type="aixm:AirspaceGeometryComponentPropertyType">
                 <annotation>
                     <documentation>An portion of airspace that contributes to the defintion of an Airspace geometry.</documentation>
                 </annotation>
@@ -6672,7 +6672,7 @@ Note: this includes the concept of Final Approach and Take-Off Area (FATO) for h
                 </annotation>
             </element>
             <element maxOccurs="1" minOccurs="0"
-                name="contributorAirspace" nillable="true" type="aixm:AirspaceVolumeDependencyType">
+                name="contributorAirspace" nillable="true" type="aixm:AirspaceVolumeDependencyPropertyType">
                 <annotation>
                     <documentation>A (parent) Airspace, whose geometry has an impact on the geometry of the AirspaceVolume.</documentation>
                 </annotation>
@@ -8446,7 +8446,7 @@ For example, fan marker, low-powered fan marker, Z marker.</documentation>
                 </annotation>
             </element>
             <element maxOccurs="unbounded" minOccurs="0"
-                name="navaidEquipment" nillable="true" type="aixm:NavaidComponentType">
+                name="navaidEquipment" nillable="true" type="aixm:NavaidComponentPropertyType">
                 <annotation>
                     <documentation>the component of the navaid system</documentation>
                 </annotation>
@@ -8610,7 +8610,7 @@ For example the DME NavaidEquipment is a NavaidComponent of an ILS system.  The 
                 </annotation>
             </element>
             <element maxOccurs="unbounded" minOccurs="0"
-                name="authority" nillable="true" type="aixm:AuthorityForNavaidEquipmentType">
+                name="authority" nillable="true" type="aixm:AuthorityForNavaidEquipmentPropertyType">
                 <annotation>
                     <documentation>The organization responsible for the equipment (could be owner or operator).</documentation>
                 </annotation>
@@ -9035,7 +9035,7 @@ E.g. Master, Red Slave (DECCA), Slave (LORAN) etc..</documentation>
                 </annotation>
             </element>
             <element maxOccurs="1" minOccurs="0"
-                name="responsibleOrganisation" nillable="true" type="aixm:AuthorityForSpecialNavigationStationType">
+                name="responsibleOrganisation" nillable="true" type="aixm:AuthorityForSpecialNavigationStationPropertyType">
                 <annotation>
                     <documentation>The organization responsible for the equipment.</documentation>
                 </annotation>
@@ -9172,7 +9172,7 @@ For example, Mangern Chain</documentation>
                 </annotation>
             </element>
             <element maxOccurs="1" minOccurs="0"
-                name="responsibleOrganisation" nillable="true" type="aixm:AuthorityForSpecialNavigationSystemType">
+                name="responsibleOrganisation" nillable="true" type="aixm:AuthorityForSpecialNavigationSystemPropertyType">
                 <annotation>
                     <documentation>The organization responsible for the equipment.</documentation>
                 </annotation>
@@ -9756,7 +9756,7 @@ The indications that are part of the PointReference must locate the same designa
                 </annotation>
             </element>
             <element maxOccurs="unbounded" minOccurs="0"
-                name="facilityAngle" nillable="true" type="aixm:AngleUseType">
+                name="facilityAngle" nillable="true" type="aixm:AngleUsePropertyType">
                 <annotation>
                     <appinfo>deprecated</appinfo>
                     <documentation>
@@ -10894,7 +10894,7 @@ SignificantPoint accounts for a specified geographical location used to define a
                 </annotation>
             </element>
             <element maxOccurs="unbounded" minOccurs="0"
-                name="relatedOrganisationAuthority" nillable="true" type="aixm:OrganisationAuthorityAssociationType">
+                name="relatedOrganisationAuthority" nillable="true" type="aixm:OrganisationAuthorityAssociationPropertyType">
                 <annotation>
                     <documentation>The related organisation, authority or agency.</documentation>
                 </annotation>
@@ -11030,7 +11030,7 @@ SignificantPoint accounts for a specified geographical location used to define a
                 </annotation>
             </element>
             <element maxOccurs="unbounded" minOccurs="0"
-                name="relatedUnit" nillable="true" type="aixm:UnitDependencyType">
+                name="relatedUnit" nillable="true" type="aixm:UnitDependencyPropertyType">
                 <annotation>
                     <documentation>The related unit.</documentation>
                 </annotation>
@@ -14128,7 +14128,7 @@ Note: It is a tolerance factor for flying.  The factor is taken into considerati
                 </annotation>
             </element>
             <element maxOccurs="unbounded" minOccurs="0"
-                name="transitionLeg" nillable="true" type="aixm:ProcedureTransitionLegType">
+                name="transitionLeg" nillable="true" type="aixm:ProcedureTransitionLegPropertyType">
                 <annotation>
                     <documentation>One segment of a transition.</documentation>
                 </annotation>
@@ -14417,7 +14417,7 @@ As a plausibility rule, value should be between -10 and +50 degrees.</documentat
                 </annotation>
             </element>
             <element maxOccurs="1" minOccurs="0" name="holding"
-                nillable="true" type="aixm:HoldingUseType">
+                nillable="true" type="aixm:HoldingUsePropertyType">
                 <annotation>
                     <documentation>Established holding used on a procedure.</documentation>
                 </annotation>
@@ -19891,7 +19891,7 @@ NOTE: In precision approach procedures where obstacles penetrate the approach su
                 </annotation>
             </element>
             <element maxOccurs="unbounded" minOccurs="0"
-                name="radarEquipment" nillable="true" type="aixm:RadarComponentType">
+                name="radarEquipment" nillable="true" type="aixm:RadarComponentPropertyType">
                 <annotation>
                     <documentation>The equipment that make up the component(s) of a Radar System.</documentation>
                 </annotation>
@@ -20151,7 +20151,7 @@ A Radar with this attribute automatically tracks controlled aircraft and present
                 </annotation>
             </element>
             <element maxOccurs="unbounded" minOccurs="0"
-                name="groundStation" nillable="true" type="aixm:SurveillanceGroundStationType">
+                name="groundStation" nillable="true" type="aixm:SurveillanceGroundStationPropertyType">
                 <annotation>
                     <documentation>The gorund station where the Radar Scope is utilized.</documentation>
                 </annotation>
