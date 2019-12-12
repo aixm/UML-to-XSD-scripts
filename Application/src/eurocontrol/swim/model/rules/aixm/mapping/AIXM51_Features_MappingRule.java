@@ -188,7 +188,7 @@ public class AIXM51_Features_MappingRule  extends AbstractMappingRule implements
 
     private void processMainPackage()
     {
-        buildHashMapForAssociationClasses(_targetPackage.GetPackages());
+        buildHashMapForAssociationClasses(_targetPackage);
         buildHashMapForDatatypes();
         Collection packagesToBeProcessed = _targetPackage.GetPackages();
         if(packagesToBeProcessed.GetCount()>0)
@@ -201,29 +201,30 @@ public class AIXM51_Features_MappingRule  extends AbstractMappingRule implements
         }
     }
     
-    protected void buildHashMapForAssociationClasses(Collection subPackages)
+    protected void buildHashMapForAssociationClasses(Package pack)
     {
-        for (Iterator packageIter = subPackages.iterator();packageIter.hasNext();)
+        //modified by pulsar on 20190612 following issue from porosnie/20190304 "Incorrect generation of extension for association class towards feature"
+
+        for (Iterator elementIter = pack.GetElements().iterator();elementIter.hasNext();)
+        {
+            Element element = (Element)elementIter.next();
+            // Check the validity of the class
+            checkElement(element);
+
+            /////////////////////////////////
+            // A numeric subtype qualifies the Type of the main element. For Class: 1 = Parameterised, 2 = Instantiated, 3 = Both, 0 = Neither, 17 = Association Class
+            // If 17, because an Association Class has been created through the user interface, MiscData(3) will contain the ID of the related Association.
+            // http://www.sparxsystems.com/uml_tool_guide/sdk_for_enterprise_architect/element2.htm
+            /////////////////////////////////
+            if(element.GetSubtype() == 17)
+            {
+                _hashMapForAssociationClasses.put(EAConnection.getInstance().getRepository().GetConnectorByID(Integer.parseInt(element.MiscData(3))).GetConnectorGUID(), element.GetElementGUID());
+            }
+        }
+        for (Iterator packageIter = pack.GetPackages().iterator();packageIter.hasNext();)
         {
             Package subPackage = (Package)packageIter.next();
-            
-            for (Iterator elementIter = subPackage.GetElements().iterator();elementIter.hasNext();)
-            {
-                Element element = (Element)elementIter.next();
-                // Check the validity of the class
-                checkElement(element);                
-                
-                /////////////////////////////////
-                // A numeric subtype qualifies the Type of the main element. For Class: 1 = Parameterised, 2 = Instantiated, 3 = Both, 0 = Neither, 17 = Association Class
-                // If 17, because an Association Class has been created through the user interface, MiscData(3) will contain the ID of the related Association.
-                // http://www.sparxsystems.com/uml_tool_guide/sdk_for_enterprise_architect/element2.htm
-                /////////////////////////////////
-                if(element.GetSubtype() == 17)
-                {
-                    _hashMapForAssociationClasses.put(EAConnection.getInstance().getRepository().GetConnectorByID(Integer.parseInt(element.MiscData(3))).GetConnectorGUID(), element.GetElementGUID());
-                }
-            }
-            buildHashMapForAssociationClasses(subPackage.GetPackages());
+            buildHashMapForAssociationClasses(subPackage);
         }
     }
     
@@ -838,6 +839,7 @@ public class AIXM51_Features_MappingRule  extends AbstractMappingRule implements
                     }
 
 
+                    //modified by pulsar on 20190612 following issue from porosnie/20190304 "Incorrect generation of extension for association class towards feature"
                     String associationClassGUID = (String)_hashMapForAssociationClasses.get(connector.GetConnectorGUID());
 	                // Case 1: association class
 	                if(associationClassGUID != null)
@@ -845,7 +847,7 @@ public class AIXM51_Features_MappingRule  extends AbstractMappingRule implements
 	                    Element associationClass = EAConnection.getInstance().getRepository().GetElementByGuid(associationClassGUID);
 	                    // chapter 4.9.1 Mapping Associations with Association Classes
 	        	        element.setAttribute("name",roleName);
-	        	        element.setAttribute("type",getNamespacePrefixForElement(associationClass) + ":" + associationClass.GetName() + "PropertyType");
+                        element.setAttribute("type",getNamespacePrefixForElement(associationClass) + ":" +  associationClass.GetName() + "PropertyType");
 	        	        sequence.appendChild(element);
 	                }
 	                // case 2: no association class - the target class is a feature

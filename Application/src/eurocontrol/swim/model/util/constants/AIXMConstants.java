@@ -85,7 +85,7 @@ public interface AIXMConstants {
     public static final String AIXM_TAGGED_VALUE_DEPRECATION_VERSION = AIXMProperties.getInstance().getProperty("aixm_tagged_value_deprecation_version");
     public static final String AIXM_TAGGED_VALUE_DELETION_VERSION = AIXMProperties.getInstance().getProperty("aixm_tagged_value_deletion_version");
 	/////////////////////////////
-	// List of default values for the core AIXM 5.1
+	// List of default values for the core AIXM
 	/////////////////////////////
 	public static final String AIXM_51_DEFAULT_GENERATE_FILE_NAME_DATATYPES = AIXMProperties.getInstance().getProperty("aixm_51_default_generate_file_name_datatypes");//"AIXM_DataTypes.xsd";	
 	public static final String AIXM_51_DEFAULT_GENERATE_FILE_NAME_FEATURES = AIXMProperties.getInstance().getProperty("aixm_51_default_generate_file_name_features");//"AIXM_Features.xsd";

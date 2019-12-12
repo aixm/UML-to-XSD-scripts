@@ -61,7 +61,7 @@ public class AIXM51_GenerateExtensionFeatures extends AbstractRule implements XS
      * @see eurocontrol.swim.model.rules.Rule#getName()
      */
     public String getName() {
-        return "[AIXM 5.1 Extension] XML SCHEMAS GENERATION - Generate Extension Features Schema.";
+        return "[AIXM Extension] XML SCHEMAS GENERATION - Generate Extension Features Schema.";
     }
 
     /* (non-Javadoc)

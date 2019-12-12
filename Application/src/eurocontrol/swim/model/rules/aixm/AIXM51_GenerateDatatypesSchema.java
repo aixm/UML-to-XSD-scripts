@@ -66,7 +66,7 @@ public class AIXM51_GenerateDatatypesSchema extends AbstractRule implements  XSD
      * @see eurocontrol.swim.model.rules.Rule#getName()
      */
     public String getName() {
-        return "[AIXM 5.1] XML SCHEMAS GENERATION - Generate core XSD For Datatypes.";
+        return "[AIXM] XML SCHEMAS GENERATION - Generate core XSD For Datatypes.";
     }
     
     /* (non-Javadoc)

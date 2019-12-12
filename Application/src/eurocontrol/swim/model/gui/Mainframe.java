@@ -236,7 +236,9 @@ public class Mainframe extends JFrame implements EAListener, EAConstants, ToolCo
             }
         });
         
-        
+
+        //AIRM button removed by Pulsar on 20190313 according to https://github.com/aixm/UML-to-XSD-scripts/issues/3
+        /*
         JButton defaultAIRMPathButton = new JButton("AIRM");
         defaultAIRMPathButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent arg0) {
@@ -244,6 +246,7 @@ public class Mainframe extends JFrame implements EAListener, EAConstants, ToolCo
                 _openUMLFileButton.setEnabled(true);
             }
         });
+        */
         
         JPanel openUMLFileButtonPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
         openUMLFileButtonPanel.add(_openUMLFileButton);
@@ -261,7 +264,7 @@ public class Mainframe extends JFrame implements EAListener, EAConstants, ToolCo
         selectProjectPanel.add(Box.createHorizontalGlue());
         
         selectProjectPanel.add(_DBMSRepositoryTextField);
-        selectProjectPanel.add(defaultAIRMPathButton);
+        selectProjectPanel.add(Box.createHorizontalGlue());//instead of obsolete selectProjectPanel.add(defaultAIRMPathButton);
         
         selectProjectPanel.add(Box.createHorizontalGlue());
         selectProjectPanel.add(Box.createHorizontalGlue());

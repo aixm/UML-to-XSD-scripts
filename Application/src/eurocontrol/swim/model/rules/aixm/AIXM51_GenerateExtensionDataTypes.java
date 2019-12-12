@@ -61,7 +61,7 @@ public class AIXM51_GenerateExtensionDataTypes extends AbstractRule implements X
      * @see eurocontrol.swim.model.rules.Rule#getName()
      */
     public String getName() {
-        return "[AIXM 5.1 Extension] XML SCHEMAS GENERATION - Generate Extension Data Types Schema.";
+        return "[AIXM Extension] XML SCHEMAS GENERATION - Generate Extension Data Types Schema.";
     }
 
     /* (non-Javadoc)

@@ -42,7 +42,7 @@ package eurocontrol.swim.model.util.constants;
 public interface AIXMExtensionsConstants {
 
 	/////////////////////////////
-	// List of default values for an AIXM 5.1 extension
+	// List of default values for an AIXM extension
 	/////////////////////////////
 	public static final String AIXM_51_EXTENSION_DEFAULT_GENERATE_FILE_NAME_DATATYPES = AIXMExtensionsProperties.getInstance().getProperty("aixm_51_extension_default_generate_file_name_datatypes");//"AIXM_Extension_DataTypes.xsd";
 	public static final String AIXM_51_EXTENSION_DEFAULT_GENERATE_FILE_NAME_FEATURES = AIXMExtensionsProperties.getInstance().getProperty("aixm_51_extension_default_generate_file_name_features");//"AIXM_Extension_Features.xsd";	

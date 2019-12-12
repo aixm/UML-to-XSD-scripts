@@ -63,7 +63,7 @@ public class AIXM_To_AIRM_Traceability extends NSV11b_To_AIRM_Traceability imple
      * @see eurocontrol.swim.model.rules.traceability.NSV11b_To_AIRM_Traceability#getName()
      */
     public String getName() {  
-        return "[AIXM 5.1 onwards] TRACEABILITY - Generate traceability of AIXM 5.1 back to the AIRM CLDM (Deprecated - does not rely on star model)";
+        return "[AIXM onwards] TRACEABILITY - Generate traceability of AIXM back to the AIRM CLDM (Deprecated - does not rely on star model)";
     }
     
     /* (non-Javadoc)

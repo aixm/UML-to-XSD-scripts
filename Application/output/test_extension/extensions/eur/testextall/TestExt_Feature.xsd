@@ -45,7 +45,7 @@
             <element maxOccurs="1" minOccurs="0" name="requstor"
                 nillable="true" type="aixm:UnitPropertyType"/>
             <element maxOccurs="unbounded" minOccurs="0"
-                name="isTestingWith" nillable="true" type="testext:TestObjectPropertyType">
+                name="isTestingWith" nillable="true" type="testext:TestAssociationClassToObjectPropertyType">
                 <annotation>
                     <documentation>Test annotation for connector/role</documentation>
                 </annotation>
@@ -75,7 +75,7 @@
             <element maxOccurs="unbounded" minOccurs="0" name="hostFIR"
                 nillable="true" type="aixm:AirspacePropertyType"/>
             <element maxOccurs="unbounded" minOccurs="0"
-                name="causeOfLimitation" nillable="true" type="aixm:AirspacePropertyType"/>
+                name="causeOfLimitation" nillable="true" type="testext:TestAssociationClassToFeaturePropertyType"/>
         </sequence>
     </group>
     <element name="TestAssociationClassToFeature" type="testext:TestAssociationClassToFeatureType">
