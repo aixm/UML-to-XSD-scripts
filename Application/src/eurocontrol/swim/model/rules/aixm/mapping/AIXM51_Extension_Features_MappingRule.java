@@ -245,7 +245,7 @@ public class AIXM51_Extension_Features_MappingRule extends
 
             if (autoInheritance)
             {
-                if (timeslicesAutoInheritance && element.GetStereotype().equals(AIXM_51_STEREOTYPE_FEATURE) )
+                if (timeslicesAutoInheritance && element.GetStereotypeEx().toUpperCase().equals(AIXM_51_STEREOTYPE_FEATURE.toUpperCase()) )
                 {
                     //AIXMSCR-13
                     if (!element.GetAbstract().equalsIgnoreCase("1") && !element.GetName().toLowerCase().startsWith("abstract"))
@@ -255,7 +255,7 @@ public class AIXM51_Extension_Features_MappingRule extends
                         _root.appendChild(createExtensionPropertyGroup(element));
                     }
                 }
-                else if (objectsAutoInheritance && element.GetStereotype().equals(AIXM_51_STEREOTYPE_OBJECT))
+                else if (objectsAutoInheritance && element.GetStereotypeEx().toUpperCase().equals(AIXM_51_STEREOTYPE_OBJECT.toUpperCase()))
                 {
                     //AIXMSCR-13
                     if (!element.GetAbstract().equalsIgnoreCase("1") && !element.GetName().toLowerCase().startsWith("abstract"))
@@ -268,7 +268,7 @@ public class AIXM51_Extension_Features_MappingRule extends
             }
             else
             {
-                if(element.GetStereotype().equals(AIXM_51_STEREOTYPE_FEATURE))
+                if(element.GetStereotypeEx().toUpperCase().equals(AIXM_51_STEREOTYPE_FEATURE.toUpperCase()))
                 {
                     _root.appendChild(createFeaturePropertyType(element));
                     _root.appendChild(createFeature(element));
@@ -282,7 +282,7 @@ public class AIXM51_Extension_Features_MappingRule extends
                     _root.appendChild(createFeaturePropertyGroup(element));
                     _root.appendChild(createAbstractFeatureExtension(element));
                 }
-                else if (element.GetStereotype().equals(AIXM_51_STEREOTYPE_OBJECT))
+                else if (element.GetStereotypeEx().toUpperCase().equals(AIXM_51_STEREOTYPE_OBJECT.toUpperCase()))
                 {
                         _root.appendChild(createObject(element));
                         _root.appendChild(createObjectType(element));
@@ -290,11 +290,11 @@ public class AIXM51_Extension_Features_MappingRule extends
                         _root.appendChild(createObjectPropertyType(element));
                         _root.appendChild(createAbstractObjectExtension(element));
                 }
-                else if (element.GetStereotype().equals(AIXM_51_STEREOTYPE_CHOICE))
+                else if (element.GetStereotypeEx().toUpperCase().equals(AIXM_51_STEREOTYPE_CHOICE.toUpperCase()))
                 {
                     // Do nothing - the choices are processed directly when creating the "property groups"
                 }
-                else if (element.GetStereotype().equals(AIXM_51_STEREOTYPE_EXTENSION))
+                else if (element.GetStereotypeEx().toUpperCase().equals(AIXM_51_STEREOTYPE_EXTENSION.toUpperCase()))
                 {
                     if (!ignoreExtensionStereotypes)
                     {
@@ -303,13 +303,13 @@ public class AIXM51_Extension_Features_MappingRule extends
                         _root.appendChild(createExtensionPropertyGroup(element));
                     }
                 }
-                else if (element.GetStereotype().equals(AIXM_51_STEREOTYPE_MESSAGE))
+                else if (element.GetStereotypeEx().toUpperCase().equals(AIXM_51_STEREOTYPE_MESSAGE.toUpperCase()))
                 {
                     _root.appendChild(createMessage(element));
                     _root.appendChild(createMessageType(element));
                     _root.appendChild(createMessagePropertyGroup(element));
                 }
-                else if (element.GetStereotype().equals(AIXM_51_STEREOTYPE_COLLECTION_MEMBER_CHOICE))
+                else if (element.GetStereotypeEx().toUpperCase().equals(AIXM_51_STEREOTYPE_COLLECTION_MEMBER_CHOICE.toUpperCase()))
                 {
                     _root.appendChild(createCollectionMemberChoicePropertyType(element));
                 }
@@ -539,7 +539,7 @@ public class AIXM51_Extension_Features_MappingRule extends
             
             Element messageMember = EAConnection.getInstance().getRepository().GetElementByID(id);
             
-            if(messageMember != null && !messageMember.GetStereotype().equals("Message"))
+            if(messageMember != null && !messageMember.GetStereotypeEx().toUpperCase().equals("Message".toUpperCase()))
             {
         	    String elementName = messageMember.GetName();
         	    if(messageMember.GetAbstract().equals("1"))
