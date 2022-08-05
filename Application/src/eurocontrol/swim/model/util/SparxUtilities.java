@@ -1142,4 +1142,15 @@ public class SparxUtilities implements EAConstants{
     	        throw new Exception(constraintName);
     	    }
 	    }
+	    
+	    /**
+	     * Test is a connector is a self-association 
+	     * @param connector the connector to be tested
+	     * @return true is the the connector is a self-association, or false otherwise.
+	     */
+	    //HLE2022 AIXM CR...
+	    public static boolean isSelfAssociation(Connector connector)
+	    {
+	    	return connector.GetClientID() == connector.GetSupplierID();
+	    }
 }
