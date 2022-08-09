@@ -1,3 +1,12 @@
+################# 20220804
+
+#1 Fixed issue captured in CR AIXM-569 about processing of self-associations 
+
+#2 Fixed tests on stereotypes to remove unnecessary warnings
+
+#3 Updated the file chooser to allow selection of newer Sparx EA File with extension .eapx
+
+
 ################# 20181206
 
 A few bugfixes and adaptations 

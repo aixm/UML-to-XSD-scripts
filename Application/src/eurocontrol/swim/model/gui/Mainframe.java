@@ -137,11 +137,11 @@ public class Mainframe extends JFrame implements EAListener, EAConstants, ToolCo
         _fileChooser.setName("Please select an EA project");
         _fileChooser.setFileFilter(new FileFilter() {
             public boolean accept(File arg0) {
-                return arg0.isDirectory() ||arg0.getName().endsWith(".eap");
+                return arg0.isDirectory() || arg0.getName().endsWith(".eap") || arg0.getName().endsWith(".eapx");
             }
 
             public String getDescription() {
-                return "EA Project (*.eap)";
+                return "EA Project (*.eap, *.eapx)";
             }
         });    
         

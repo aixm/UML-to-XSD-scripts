@@ -54,6 +54,10 @@ import javax.xml.xpath.XPathFactory;
 import java.io.IOException;
 import java.util.*;
 
+// H.Lepori, ECTL - 04-Aug-2022. Modified all tests on Stereotypes to add toUpperCase().
+// Sparx EA may occasionally add capital letters to stereotypes, for instance replacing Codelist by CodeList
+// This Sparx EA behaviour unnecessary triggers errors and warnings in the script. 
+
 /**
  * @author hlepori
  */
@@ -347,7 +351,7 @@ public class AIXM51_Features_MappingRule  extends AbstractMappingRule implements
         {
             Element element = (Element)elementIter.next();
 
-            if(element.GetStereotypeEx().contains(AIXM_51_STEREOTYPE_FEATURE))
+            if(element.GetStereotypeEx().toUpperCase().toUpperCase().contains(AIXM_51_STEREOTYPE_FEATURE.toUpperCase()))
             {
                 _root.appendChild(createFeaturePropertyType(element));
                 _root.appendChild(createFeature(element));
@@ -363,7 +367,7 @@ public class AIXM51_Features_MappingRule  extends AbstractMappingRule implements
 
                 _root.appendChild(createAbstractFeatureExtension(element));
             }
-            else if (element.GetStereotypeEx().contains(AIXM_51_STEREOTYPE_OBJECT))
+            else if (element.GetStereotypeEx().toUpperCase().contains(AIXM_51_STEREOTYPE_OBJECT.toUpperCase()))
             {
                     _root.appendChild(createObject(element));
                     _root.appendChild(createObjectType(element));
@@ -371,7 +375,7 @@ public class AIXM51_Features_MappingRule  extends AbstractMappingRule implements
                     _root.appendChild(createObjectPropertyType(element));
                     _root.appendChild(createAbstractObjectExtension(element));
             }
-            else if (element.GetStereotypeEx().equals(AIXM_51_STEREOTYPE_CHOICE))
+            else if (element.GetStereotypeEx().toUpperCase().equals(AIXM_51_STEREOTYPE_CHOICE.toUpperCase()))
             {
                 // Do nothing - the choices are processed directly when creating the "property groups"  
             }
@@ -448,7 +452,7 @@ public class AIXM51_Features_MappingRule  extends AbstractMappingRule implements
 	    String name = feature.GetName();	  
 	    org.w3c.dom.Element element = _xmldoc.createElement(XSD_TAG_ELEMENT);
 
-        boolean _includeDeprecation = feature.GetStereotypeEx().contains(AIXM_51_STEREOTYPE_DEPRECATED);
+        boolean _includeDeprecation = feature.GetStereotypeEx().toUpperCase().contains(AIXM_51_STEREOTYPE_DEPRECATED.toUpperCase());
 	    
 	    if(feature.GetAbstract().equals("1"))
 	    {
@@ -710,8 +714,8 @@ public class AIXM51_Features_MappingRule  extends AbstractMappingRule implements
 
         //AIXMSCR-13: add inherited properties and associations if autoInheritance enabled
         Vector<org.w3c.dom.Node> autoInheritanceElements = null;
-        if (feature.GetStereotypeEx().contains(AIXM_51_STEREOTYPE_OBJECT)) autoInheritanceElements = elementsForAllObjects;
-        if (feature.GetStereotypeEx().contains(AIXM_51_STEREOTYPE_FEATURE)) autoInheritanceElements = elementsForAllTimeslices;
+        if (feature.GetStereotypeEx().toUpperCase().contains(AIXM_51_STEREOTYPE_OBJECT.toUpperCase())) autoInheritanceElements = elementsForAllObjects;
+        if (feature.GetStereotypeEx().toUpperCase().contains(AIXM_51_STEREOTYPE_FEATURE.toUpperCase())) autoInheritanceElements = elementsForAllTimeslices;
         if (autoInheritance && autoInheritanceElements!=null && autoInheritanceElements.size()!=0)for (int e=0;e<autoInheritanceElements.size();e++)
         {
             Node autoInheritanceElement = autoInheritanceElements.get(e);
@@ -762,7 +766,6 @@ public class AIXM51_Features_MappingRule  extends AbstractMappingRule implements
 	    {
 	        Connector connector = (Connector) connectorIter.next();
 	        String connectorType = connector.GetType();
-
 	        if(connectorType.equals(EA_CONNECTOR_TYPE_ASSOCIATION) || connectorType.equals(EA_CONNECTOR_TYPE_AGGREGATION))
 	        {	            
 	            // The target class is process only if the association is navigable to it.
@@ -774,18 +777,27 @@ public class AIXM51_Features_MappingRule  extends AbstractMappingRule implements
 	            
 	            // Note: depending on the way the UML association was modelled, what is called the target class in the comment above can be either the "client" or "supplier" of the connector.
 	            // The purpose of this piece of code is to make sure the right target association is correctly processed.                                
-	            if (id == feature.GetElementID())
+	            
+	            // AIXM-569 / H.Lepori, ECTL - 04-Aug-2022 - added a block of code to address self-associations appropriately	          
+	            if(SparxUtilities.isSelfAssociation(connector) && !isNavigableToTarget)
+	            {
+	                id = connector.GetSupplierID();
+	                isNavigableToTarget = connector.GetSupplierEnd().GetNavigable().equals(EA_CONNECTOR_NAVIGABILITY_NAVIGABLE);
+	                roleName = connector.GetSupplierEnd().GetRole();
+	                roleNotes = connector.GetSupplierEnd().GetRoleNote();
+	                sparxCardinality = connector.GetSupplierEnd().GetCardinality();                
+	            }
+	            else if (!SparxUtilities.isSelfAssociation(connector) && id == feature.GetElementID())
 	            {
 	                id = connector.GetSupplierID();
 	                isNavigableToTarget = connector.GetSupplierEnd().GetNavigable().equals(EA_CONNECTOR_NAVIGABILITY_NAVIGABLE);
 	                roleName = connector.GetSupplierEnd().GetRole();
 	                roleNotes = connector.GetSupplierEnd().GetRoleNote();
 	                sparxCardinality = connector.GetSupplierEnd().GetCardinality();
-
 	            }
 	            Element associatedElement = EAConnection.getInstance().getRepository().GetElementByID(id);
 	            
-	            // Remark: the association to class +annotation [Note] is not processed in this loop. The property annotation is always included in the XSD as the last item of the property group.
+		        // Remark: the association to class +annotation [Note] is not processed in this loop. The property annotation is always included in the XSD as the last item of the property group.
 	            if(isNavigableToTarget && !associatedElement.GetName().equals("Note"))
 	            {
         	        org.w3c.dom.Element element = _xmldoc.createElement(XSD_TAG_ELEMENT);
@@ -799,7 +811,8 @@ public class AIXM51_Features_MappingRule  extends AbstractMappingRule implements
 
                     try
         	        {
-        	            upperCardinality = getUpperMultiplictyInXML(connector, associatedElement);
+        	            // AIXM-569 / H.Lepori, ECTL - 04-Aug-2022 - modified the method getUpperMultiplictyInXML to derive the upper cardinality from "sparxCardinality", which is correctly initialised.
+        	            upperCardinality = getUpperMultiplictyInXML(sparxCardinality);//getUpperMultiplictyInXML(connector, associatedElement);
         	        }
         	        catch (Exception e)
         	        {
@@ -811,7 +824,7 @@ public class AIXM51_Features_MappingRule  extends AbstractMappingRule implements
 
                     ////////////////////////////////////
 
-                    boolean _includeDeprecation = connector.GetStereotypeEx().contains(AIXM_51_STEREOTYPE_DEPRECATED);
+                    boolean _includeDeprecation = connector.GetStereotypeEx().toUpperCase().contains(AIXM_51_STEREOTYPE_DEPRECATED.toUpperCase());
 
                     //include annotation
         	        if(_includeDocumentation || _includeDeprecation)
@@ -851,7 +864,7 @@ public class AIXM51_Features_MappingRule  extends AbstractMappingRule implements
 	        	        sequence.appendChild(element);
 	                }
 	                // case 2: no association class - the target class is a feature
-	                else if(associatedElement.GetStereotypeEx().contains("feature"))
+	                else if(associatedElement.GetStereotypeEx().toUpperCase().contains(AIXM_51_STEREOTYPE_FEATURE.toUpperCase()))
 	                {
 	                    // chapter 4.10 Mapping Relationships to Features
 	        	        element.setAttribute("name",roleName);
@@ -859,7 +872,7 @@ public class AIXM51_Features_MappingRule  extends AbstractMappingRule implements
 	        	        sequence.appendChild(element);
 	                }
 	                // case 3: no association class - the target class is an object
-	                else if (associatedElement.GetStereotypeEx().contains("object"))
+	                else if (associatedElement.GetStereotypeEx().toUpperCase().contains(AIXM_51_STEREOTYPE_OBJECT.toUpperCase()))
 	                {
 	                    // chapter 4.9 Mapping Relationships to Objects
 	        	        element.setAttribute("name",roleName);
@@ -868,7 +881,7 @@ public class AIXM51_Features_MappingRule  extends AbstractMappingRule implements
 	                }
 	                // case 4: no association class - the target class is a choice
 
-	                else if (associatedElement.GetStereotypeEx().contains("choice"))
+	                else if (associatedElement.GetStereotypeEx().toUpperCase().contains(AIXM_51_STEREOTYPE_CHOICE.toUpperCase()))
 	                {
 	                    sequence.appendChild(createChoice(associatedElement,connector,roleName,roleNotes, upperCardinality));
                     
@@ -1112,12 +1125,12 @@ public class AIXM51_Features_MappingRule  extends AbstractMappingRule implements
         // chapter 4.8 Mapping Choices
         org.w3c.dom.Element choice = _xmldoc.createElement(XSD_TAG_CHOICE);
 
-       // boolean _includeDeprecation =  connector.GetSupplierEnd().GetStereotypeEx().contains(AIXM_51_STEREOTYPE_DEPRECATED);
+       // boolean _includeDeprecation =  connector.GetSupplierEnd().GetStereotypeEx().toUpperCase().contains(AIXM_51_STEREOTYPE_DEPRECATED);
 
 
 
-        boolean _includeDeprecation =  associatedElement.GetStereotypeEx().contains(AIXM_51_STEREOTYPE_DEPRECATED);
-        boolean _includeConnectorsDeprecation =  connector.GetStereotypeEx().contains(AIXM_51_STEREOTYPE_DEPRECATED);
+        boolean _includeDeprecation =  associatedElement.GetStereotypeEx().toUpperCase().contains(AIXM_51_STEREOTYPE_DEPRECATED.toUpperCase());
+        boolean _includeConnectorsDeprecation =  connector.GetStereotypeEx().toUpperCase().contains(AIXM_51_STEREOTYPE_DEPRECATED.toUpperCase());
 
         if(_includeDocumentation || _includeDeprecation ){
 
@@ -1150,7 +1163,7 @@ public class AIXM51_Features_MappingRule  extends AbstractMappingRule implements
 	                Element choiceElement = EAConnection.getInstance().getRepository().GetElementByID(idChoiceElement);
             		
 	                // A choice can point to another choice. For instance <<choice>>[FlightRoutingElementChoice] ---> <<choice>>[SignificantPoint] 
-	                if(choiceElement.GetStereotypeEx().contains("choice"))
+	                if(choiceElement.GetStereotypeEx().toUpperCase().contains(AIXM_51_STEREOTYPE_CHOICE.toUpperCase()))
 	                {
 	                    choice.appendChild(createChoice(choiceElement,choiceConnector, roleChoiceElement,roleNotesChoiceElement, upperCardinality));
 	                }
@@ -1179,7 +1192,7 @@ public class AIXM51_Features_MappingRule  extends AbstractMappingRule implements
                                 XSDelementForChoice.setAttribute("maxOccurs","unbounded");
                         }
 
-                        _includeDeprecation =  choiceConnector.GetStereotypeEx().contains(AIXM_51_STEREOTYPE_DEPRECATED);
+                        _includeDeprecation =  choiceConnector.GetStereotypeEx().toUpperCase().contains(AIXM_51_STEREOTYPE_DEPRECATED.toUpperCase());
 
                         if(_includeDocumentation || _includeDeprecation || _includeConnectorsDeprecation ){
 
@@ -1253,7 +1266,7 @@ public class AIXM51_Features_MappingRule  extends AbstractMappingRule implements
 	        element.setAttribute("substitutionGroup",getNamespacePrefixForElement(UMLParent) + ":" + parentName);
 	    }
 
-        boolean _includeDeprecation =  object.GetStereotypeEx().contains(AIXM_51_STEREOTYPE_DEPRECATED);
+        boolean _includeDeprecation =  object.GetStereotypeEx().toUpperCase().contains(AIXM_51_STEREOTYPE_DEPRECATED.toUpperCase());
 
         //include annotation
         if(_includeDocumentation || _includeDeprecation ){
@@ -1446,12 +1459,14 @@ public class AIXM51_Features_MappingRule  extends AbstractMappingRule implements
 	        requiresUpdate = true; 
 	    }
 	    
-	    if(!element.GetStereotype().equals(AIXM_51_STEREOTYPE_COLLECTION_MEMBER_CHOICE) && !element.GetStereotype().toLowerCase().equals(element.GetStereotype()))
-	    {
-	        EAEventManager.getInstance().fireEAEvent(this,MESSAGE_WARNING + ": The stereotype of " + SparxUtilities.toString(element) + " contains letters in Upper case.");
-	        element.SetStereotype(element.GetStereotype().toLowerCase());
-	        requiresUpdate = true; 
-	    }
+	    // H.Lepori, ECTL - 04-Aug-2022. This piece of code is no longer required as the AIXM Logical Model now involves stereotype with capital letters.
+	    //
+	    // if(!element.GetStereotype().equals(AIXM_51_STEREOTYPE_COLLECTION_MEMBER_CHOICE) && !element.GetStereotype().toLowerCase().equals(element.GetStereotype()))
+	    // {
+	    //    EAEventManager.getInstance().fireEAEvent(this,MESSAGE_WARNING + ": The stereotype of " + SparxUtilities.toString(element) + " contains letters in Upper case.");
+	    //    element.SetStereotype(element.GetStereotype().toLowerCase());
+	    //    requiresUpdate = true; 
+	    // }
 	    
 	    // force the update in the SparxEA UML model
         if(_autoCorrection && requiresUpdate)
@@ -1512,23 +1527,32 @@ public class AIXM51_Features_MappingRule  extends AbstractMappingRule implements
 	    return (Element)_hashMapForDatatypes.get(datatypeName);
 	}
 	
-    
-    /**
-     * 
-     * @param connector
-     * @param targetElement
-     * @return
-     */
-    public String getUpperMultiplictyInXML(Connector connector, Element targetElement) throws Exception
+	// AIXM-569 / H.Lepori, ECTL - 04-Aug-2022 - modified the method getUpperMultiplictyInXML to derive the upper cardinality from "sparxCardinality", which is correctly initialised.    
+	/**
+	 * 
+	 * @param roleCardinality
+	 * @return
+	 * @throws Exception
+	 */
+    public String getUpperMultiplictyInXML(String roleCardinality) throws Exception
     {
-        String upperMultiplicty = SparxUtilities.getUpperMultiplicity(connector, targetElement);
+        String upperMultiplicty = roleCardinality.substring(roleCardinality.lastIndexOf(".")+1, roleCardinality.length());
         if(upperMultiplicty.equals("*") || upperMultiplicty.equals("n"))
         {
             return "unbounded";
         }
         return upperMultiplicty;
     }
-	
+	//    public String getUpperMultiplictyInXML(Connector connector, Element targetElement) throws Exception
+	//    {
+	//        String upperMultiplicty = SparxUtilities.getUpperMultiplicity(connector, targetElement);
+	//        if(upperMultiplicty.equals("*") || upperMultiplicty.equals("n"))
+	//        {
+	//            return "unbounded";
+	//        }
+	//        return upperMultiplicty;
+	//    }
+    
 	/**
      * 
      */
@@ -1571,4 +1595,5 @@ public class AIXM51_Features_MappingRule  extends AbstractMappingRule implements
         boolean belongsToISO19107Package = SparxUtilities.belongsToPackage(element,AIXM_51_GUID_PACKAGE_ISO_19107_GEOMETRY);
         return belongsToISO19107Package || inheritsFromISO19107(getUMLParent(element));
     }
+    
 }

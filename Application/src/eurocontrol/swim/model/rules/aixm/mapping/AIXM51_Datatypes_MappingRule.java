@@ -49,6 +49,9 @@ import eurocontrol.swim.model.rules.common.AbstractMappingRule;
 import eurocontrol.swim.model.sparx.EAConnection;
 import eurocontrol.swim.model.util.SparxUtilities;
 
+//H.Lepori, ECTL - 04-Aug-2022. Modified all tests on Stereotypes to add toUpperCase().
+//Sparx EA may occasionally add capital letters to stereotypes, for instance replacing Codelist by CodeList
+//This Sparx EA behaviour unnecessary triggers errors and warnings in the script. 
 
 /**
  * @author hlepori
@@ -163,9 +166,9 @@ public class AIXM51_Datatypes_MappingRule extends AbstractMappingRule
                 Element UMLdatatype = (Element)iter.next();
                 String stereotype = UMLdatatype.GetStereotypeEx();
 
-                if(stereotype.contains(AIXM_51_STEREOTYPE_CODELIST))
+                if(stereotype.toUpperCase().contains(AIXM_51_STEREOTYPE_CODELIST.toUpperCase()))
                     xsdRoot.appendChild(mapsUMLCodelist(UMLdatatype));
-                else if (stereotype.contains(AIXM_51_STEREOTYPE_DATATYPE))
+                else if (stereotype.toUpperCase().contains(AIXM_51_STEREOTYPE_DATATYPE.toUpperCase()))
                     xsdRoot.appendChild(mapsUMLDatatype(UMLdatatype));
                 else
                     EAEventManager.getInstance().fireEAEvent(this,MESSAGE_ERROR + ": The datatype " + SparxUtilities.toString(UMLdatatype) + " has either no stereotype or a wrong stereotype.");
@@ -269,7 +272,7 @@ public class AIXM51_Datatypes_MappingRule extends AbstractMappingRule
                     org.w3c.dom.Element myEnum = _xmldoc.createElement(XSD_TAG_ENUMERATION);
                     myEnum.setAttribute("value",attribute.GetName());
 
-                    _includeDeprecation = attribute.GetStereotypeEx().contains(AIXM_51_STEREOTYPE_DEPRECATED);
+                    _includeDeprecation = attribute.GetStereotypeEx().toUpperCase().contains(AIXM_51_STEREOTYPE_DEPRECATED.toUpperCase());
                     //include annotation
                     if(_includeDocumentation || _includeDeprecation ){
                         myEnum.appendChild(createAnnotation(attribute, _includeDeprecation, attribute.GetNotes()));
@@ -395,7 +398,7 @@ public class AIXM51_Datatypes_MappingRule extends AbstractMappingRule
         // Set the name of the simple type
         simpleType.setAttribute("name", umlDatatype.GetName());
 
-        boolean _includeDeprecation = umlDatatype.GetStereotypeEx().contains(AIXM_51_STEREOTYPE_DEPRECATED);
+        boolean _includeDeprecation = umlDatatype.GetStereotypeEx().toUpperCase().contains(AIXM_51_STEREOTYPE_DEPRECATED.toUpperCase());
 
         //include annotation
         if(_includeDocumentation || _includeDeprecation ){
@@ -425,7 +428,7 @@ public class AIXM51_Datatypes_MappingRule extends AbstractMappingRule
             checkAttribute(umlDatatype, attribute);
 
             // Process the XSD facet
-            if(attribute.GetStereotypeEx().contains(AIXM_51_STEREOTYPE_XSD_FACET))
+            if(attribute.GetStereotypeEx().toUpperCase().contains(AIXM_51_STEREOTYPE_XSD_FACET.toUpperCase()))
             {
                 org.w3c.dom.Element facet = _xmldoc.createElement(attribute.GetName());
                 facet.setAttribute("value", unescapeXML(attribute.GetDefault()));
@@ -449,7 +452,7 @@ public class AIXM51_Datatypes_MappingRule extends AbstractMappingRule
         // Set the name of the complex type
         complexType.setAttribute("name", umlDatatype.GetName());
 
-        boolean _includeDeprecation = umlDatatype.GetStereotypeEx().contains(AIXM_51_STEREOTYPE_DEPRECATED);
+        boolean _includeDeprecation = umlDatatype.GetStereotypeEx().toUpperCase().contains(AIXM_51_STEREOTYPE_DEPRECATED.toUpperCase());
         //include annotation
         if(_includeDocumentation || _includeDeprecation ){
             complexType.appendChild(createAnnotation(umlDatatype, _includeDeprecation, umlDatatype.GetNotes()));
@@ -471,7 +474,7 @@ public class AIXM51_Datatypes_MappingRule extends AbstractMappingRule
             org.w3c.dom.Element xsdAttribute = _xmldoc.createElement(XSD_TAG_ATTRIBUTE);
             xsdAttribute.setAttribute("name",umlAttribute.GetName());
 
-            _includeDeprecation = umlAttribute.GetStereotype().equals(AIXM_51_STEREOTYPE_DEPRECATED);
+            _includeDeprecation = umlAttribute.GetStereotype().toUpperCase().equals(AIXM_51_STEREOTYPE_DEPRECATED.toUpperCase());
 
             if(_includeDocumentation || _includeDeprecation ){
                 xsdAttribute.appendChild(createAnnotation(umlAttribute, _includeDeprecation, umlAttribute.GetNotes()));
@@ -532,7 +535,7 @@ public class AIXM51_Datatypes_MappingRule extends AbstractMappingRule
         // Set the name of the complex type
         complexType.setAttribute("name", umlDatatype.GetName());//"TextXHTMLType");
 
-        boolean _includeDeprecation = umlDatatype.GetStereotypeEx().contains(AIXM_51_STEREOTYPE_DEPRECATED);
+        boolean _includeDeprecation = umlDatatype.GetStereotypeEx().toUpperCase().contains(AIXM_51_STEREOTYPE_DEPRECATED.toUpperCase());
 
         if(_includeDocumentation || _includeDeprecation ){
             complexType.appendChild(createAnnotation(umlDatatype, _includeDeprecation, umlDatatype.GetNotes()));
@@ -558,7 +561,7 @@ public class AIXM51_Datatypes_MappingRule extends AbstractMappingRule
             org.w3c.dom.Element xsdAttribute = _xmldoc.createElement(XSD_TAG_ATTRIBUTE);
             xsdAttribute.setAttribute("name",attribute.GetName());
 
-            _includeDeprecation = attribute.GetStereotype().equals(AIXM_51_STEREOTYPE_DEPRECATED);
+            _includeDeprecation = attribute.GetStereotype().toUpperCase().equals(AIXM_51_STEREOTYPE_DEPRECATED.toUpperCase());
 
             if(_includeDocumentation || _includeDeprecation ){
                 xsdAttribute.appendChild(createAnnotation(attribute, _includeDeprecation, attribute.GetNotes()));
@@ -611,13 +614,14 @@ public class AIXM51_Datatypes_MappingRule extends AbstractMappingRule
             element.SetName(element.GetName().replaceAll(" ",""));
             requiresUpdate = true;
         }
-
-        if(!element.GetStereotype().toLowerCase().equals(element.GetStereotype()))
-        {
-            EAEventManager.getInstance().fireEAEvent(this,MESSAGE_WARNING + ": The stereotype of " + SparxUtilities.toString(element) + " contains letters in Upper case.");
-            element.SetStereotype(element.GetStereotype().toLowerCase());
-            requiresUpdate = true;
-        }
+	    // H.Lepori, ECTL - 04-Aug-2022. This piece of code is no longer required as the AIXM Logical Model now involves stereotype with capital letters.
+	    //
+        // if(!element.GetStereotype().toLowerCase().equals(element.GetStereotype()))
+        // {
+        //     EAEventManager.getInstance().fireEAEvent(this,MESSAGE_WARNING + ": The stereotype of " + SparxUtilities.toString(element) + " contains letters in Upper case.");
+        //     element.SetStereotype(element.GetStereotype().toLowerCase());
+        //     requiresUpdate = true;
+        // }
 
         // force the update in the SparxEA UML model
         if(_autoCorrection && requiresUpdate)
