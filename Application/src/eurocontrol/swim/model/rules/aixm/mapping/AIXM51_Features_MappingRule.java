@@ -519,7 +519,7 @@ public class AIXM51_Features_MappingRule  extends AbstractMappingRule implements
 	        {
 	            extensionBaseName = umlParent.GetName() + "Type";
 	        }
-	        extension.setAttribute("base", getNamespacePrefixForElement(feature) + ":" + extensionBaseName);
+	        extension.setAttribute("base", getNamespacePrefixForElement(umlParent) + ":" + extensionBaseName);
 	    }
 	    else
 	    {
